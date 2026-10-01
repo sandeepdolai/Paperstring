@@ -3,78 +3,292 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f7f7f5">
-<title>Paper String — Creative Workspace</title>
+<meta name="theme-color" content="#f5f5f7">
+<title>Paper String</title>
 <style>
-:root{--bg:#f7f7f5;--surface:#fff;--surface2:#f1f1ee;--ink:#171717;--muted:#70706b;--line:#deded8;--blue:#155eef;--blue2:#1047c7;--shadow:0 10px 30px rgba(0,0,0,.06);--r:14px;--r2:10px;--top:64px}
-*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:Inter,-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;color:var(--ink);background:var(--bg)}button,input{font:inherit}button{border:0;background:none;color:inherit;cursor:pointer}.app{height:100%;display:flex;overflow:hidden}.sidebar{width:244px;border-right:1px solid var(--line);background:rgba(255,255,255,.72);padding:20px 14px;display:flex;flex-direction:column;gap:20px}.brand{display:flex;align-items:center;gap:10px;padding:4px 10px 18px;font-weight:650;letter-spacing:-.02em}.mark{width:28px;height:28px;border-radius:8px;background:#171717;color:#fff;display:grid;place-items:center;font-size:14px}.nav{display:grid;gap:4px}.nav button{height:42px;text-align:left;padding:0 12px;border-radius:9px;color:#666;display:flex;align-items:center;gap:11px}.nav button:hover,.nav button.active{background:#ecece8;color:#171717}.ico{width:18px;text-align:center;font-size:15px}.sidebar-foot{margin-top:auto;display:grid;gap:5px}.main{min-width:0;flex:1;display:flex;flex-direction:column}.topbar{height:var(--top);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(247,247,245,.86);backdrop-filter:blur(14px);position:relative;z-index:5}.top-left{display:flex;align-items:center;gap:12px}.page-title{font-size:15px;font-weight:600}.top-actions{display:flex;gap:8px;align-items:center}.btn{height:36px;padding:0 14px;border:1px solid var(--line);border-radius:9px;background:var(--surface);font-size:13px;font-weight:550}.btn:hover{background:#f1f1ee}.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}.btn.blue{background:var(--blue);border-color:var(--blue);color:#fff}.content{padding:34px 40px;overflow:auto}.view{display:none}.view.active{display:block}.eyebrow{font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}.hero{max-width:840px;margin:40px auto 46px}.hero h1{font-size:clamp(38px,5vw,64px);line-height:1.02;letter-spacing:-.055em;margin:12px 0 16px;font-weight:650}.hero p{max-width:610px;color:var(--muted);font-size:17px;line-height:1.55;margin:0}.actions{display:flex;gap:10px;margin-top:28px}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:16px}.section-head h2{font-size:18px;letter-spacing:-.02em;margin:0}.muted{color:var(--muted)}.project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}.project{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.02);transition:transform .18s ease,box-shadow .18s ease}.project:hover{transform:translateY(-2px);box-shadow:var(--shadow)}.thumb{aspect-ratio:4/3;background:#e7e7e2;display:grid;place-items:center;color:#aaa;font-size:12px}.project-meta{padding:13px}.project-name{font-size:13px;font-weight:600}.project-sub{font-size:12px;color:var(--muted);margin-top:4px}.template-tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}.search{height:40px;border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:0 13px;min-width:240px;outline:none}.search:focus{border-color:#9bb7f8;box-shadow:0 0 0 3px #e8efff}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{height:34px;padding:0 12px;border:1px solid var(--line);border-radius:18px;background:var(--surface);font-size:12px}.chip.active{background:#171717;color:#fff;border-color:#171717}.template-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}.template{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);overflow:hidden}.template-preview{aspect-ratio:4/3;display:grid;place-items:center;font-weight:600;font-size:20px;letter-spacing:-.04em}.template:nth-child(1) .template-preview{background:#e9edf6}.template:nth-child(2) .template-preview{background:#e9e4db}.template:nth-child(3) .template-preview{background:#e5e9e5}.template:nth-child(4) .template-preview{background:#e8e4ea}.template-info{padding:13px}.template-info strong{font-size:13px}.template-info span{display:block;color:var(--muted);font-size:11px;margin-top:4px}.editor{position:fixed;inset:0;background:#191919;color:#fff;z-index:20;display:none;grid-template-rows:58px 1fr}.editor.open{display:grid}.editorbar{display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid #343434;background:#202020}.editorbar .group{display:flex;align-items:center;gap:5px}.editor button{height:34px;min-width:34px;border-radius:8px;color:#ddd}.editor button:hover,.editor button.selected{background:#343434;color:#fff}.docname{font-size:13px;font-weight:600;min-width:120px}.editorbody{min-height:0;display:grid;grid-template-columns:58px 1fr 278px}.tools{border-right:1px solid #343434;background:#202020;padding:10px 7px;display:grid;align-content:start;gap:5px}.tool{display:grid!important;place-items:center;gap:2px;font-size:10px;color:#aaa}.tool span{font-size:16px}.canvas-area{min-width:0;position:relative;display:grid;place-items:center;background:#242424;overflow:hidden}.canvas-wrap{width:min(72%,760px);aspect-ratio:16/10;background:#fff;box-shadow:0 22px 70px rgba(0,0,0,.4);position:relative;overflow:hidden}.canvas-demo{position:absolute;inset:0;padding:9%;color:#171717;background:linear-gradient(135deg,#f8f8f5,#deded9)}.canvas-demo h2{font-size:clamp(26px,4vw,52px);letter-spacing:-.05em;margin:0 0 8px}.canvas-demo p{font-size:14px;color:#666}.canvas-demo .shape{position:absolute;width:28%;aspect-ratio:1;right:10%;bottom:13%;border-radius:50%;background:#155eef}.rightpanel{border-left:1px solid #343434;background:#202020;overflow:auto}.panel-section{padding:15px;border-bottom:1px solid #343434}.panel-title{font-size:11px;color:#aaa;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}.layer{display:flex;align-items:center;gap:8px;padding:9px;border-radius:7px;font-size:12px}.layer.active{background:#343434}.layer .mini{width:24px;height:24px;border-radius:5px;background:#444;display:grid;place-items:center;color:#bbb}.prop{display:grid;grid-template-columns:1fr 1fr;gap:8px}.field{background:#2b2b2b;border:1px solid #3a3a3a;border-radius:7px;height:34px;padding:0 9px;color:#ddd;font-size:11px;display:flex;align-items:center;justify-content:space-between}.mobile-nav{display:none}.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#171717;color:#fff;padding:10px 14px;border-radius:9px;font-size:12px;opacity:0;pointer-events:none;transition:.2s;z-index:50}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}@media(max-width:800px){.sidebar{display:none}.content{padding:24px 18px 90px}.topbar{padding:0 16px}.mobile-nav{display:flex;position:fixed;bottom:0;left:0;right:0;height:62px;background:rgba(255,255,255,.94);border-top:1px solid var(--line);z-index:10;justify-content:space-around}.mobile-nav button{font-size:10px;color:#777;display:grid;place-items:center;gap:2px}.mobile-nav button.active{color:#171717}.hero{margin:30px auto 38px}.actions{flex-wrap:wrap}.project-grid,.template-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.editorbody{grid-template-columns:52px 1fr}.rightpanel{display:none}.canvas-wrap{width:88%;aspect-ratio:4/3}.docname{display:none}.editorbar{padding:0 8px}.editorbar .group{gap:2px}}@media(max-width:430px){.project-grid,.template-grid{grid-template-columns:1fr}.search{min-width:100%;width:100%}}
+:root{
+  --bg:#f5f5f7;--surface:rgba(255,255,255,.72);--surface-solid:#fff;--ink:#1d1d1f;
+  --secondary:#6e6e73;--tertiary:#86868b;--line:rgba(0,0,0,.09);--accent:#0071e3;
+  --accent-soft:rgba(0,113,227,.1);--radius:18px;--glass:blur(24px) saturate(180%);
+  --shadow:0 12px 42px rgba(0,0,0,.08)
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+body{overflow:hidden}
+button,input{font:inherit}
+button{border:0;background:none;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid rgba(0,113,227,.35);outline-offset:2px}
+.app{height:100dvh;display:grid;grid-template-columns:250px 1fr;position:relative}
+.sidebar{
+  position:relative;z-index:10;margin:12px 0 12px 12px;border-radius:22px;
+  background:rgba(250,250,252,.72);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass);
+  border:1px solid rgba(255,255,255,.8);box-shadow:0 8px 32px rgba(0,0,0,.06);
+  padding:16px 10px;display:flex;flex-direction:column
+}
+.brand{display:flex;align-items:center;gap:10px;padding:8px 10px 22px;font-size:17px;font-weight:650;letter-spacing:-.025em}
+.brand-mark{width:30px;height:30px;border-radius:9px;background:#1d1d1f;color:white;display:grid;place-items:center;font-size:13px;font-weight:650}
+.nav-group{display:grid;gap:2px}
+.nav-label{padding:9px 12px 6px;color:var(--tertiary);font-size:11px;font-weight:600}
+.nav-item{height:40px;padding:0 12px;border-radius:10px;display:flex;align-items:center;gap:11px;color:#515154;font-size:13px;text-align:left}
+.nav-item:hover{background:rgba(0,0,0,.045)}
+.nav-item.active{background:rgba(0,113,227,.1);color:#0066cc;font-weight:600}
+.symbol{width:18px;text-align:center;font-size:16px;line-height:1}
+.sidebar-bottom{margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+.main{min-width:0;display:flex;flex-direction:column;overflow:hidden}
+.toolbar{
+  height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;
+  position:relative;z-index:5
+}
+.toolbar-left,.toolbar-right{display:flex;align-items:center;gap:7px}
+.toolbar-title{font-size:14px;font-weight:600;letter-spacing:-.01em}
+.toolbar-sub{font-size:12px;color:var(--secondary)}
+.tool-btn{
+  min-width:34px;height:34px;padding:0 10px;border-radius:10px;display:grid;place-items:center;
+  color:#3a3a3c;font-size:13px
+}
+.tool-btn:hover{background:rgba(0,0,0,.055)}
+.primary{
+  height:34px;padding:0 15px;border-radius:17px;background:#0071e3;color:white;font-size:13px;font-weight:600;
+  box-shadow:0 1px 2px rgba(0,0,0,.08)
+}
+.primary:hover{background:#0077ed}
+.content{overflow:auto;min-height:0;padding:8px 42px 70px}
+.home{max-width:1180px;margin:0 auto}
+.hero{padding:74px 0 88px;max-width:860px}
+.kicker{font-size:14px;font-weight:600;color:var(--secondary);letter-spacing:-.01em}
+.hero h1{font-size:clamp(48px,6.5vw,86px);line-height:.98;letter-spacing:-.065em;margin:14px 0 24px;font-weight:650}
+.hero p{font-size:20px;line-height:1.42;letter-spacing:-.02em;color:var(--secondary);max-width:650px;margin:0}
+.hero-actions{display:flex;align-items:center;gap:18px;margin-top:32px}
+.text-action{font-size:14px;color:#0066cc;font-weight:600}
+.text-action:hover{text-decoration:underline}
+.section{padding:0 0 72px}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px}
+.section-title{font-size:26px;letter-spacing:-.04em;margin:0;font-weight:650}
+.section-link{font-size:13px;color:#0066cc;font-weight:600}
+.project-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.project{min-width:0;cursor:pointer}
+.project-preview{
+  aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#e8e8ed;
+  position:relative;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s
+}
+.project:hover .project-preview{transform:scale(1.012);box-shadow:var(--shadow)}
+.preview-one{background:linear-gradient(145deg,#fafafa 0 40%,#d9d9de 40% 100%)}
+.preview-one:after{content:"Paper String";position:absolute;left:11%;top:17%;font-size:clamp(24px,3vw,42px);font-weight:650;letter-spacing:-.06em}
+.preview-two{background:linear-gradient(135deg,#e9eef7,#c8d5e8)}
+.preview-two:after{content:"Campaign";position:absolute;left:10%;bottom:12%;font-size:clamp(25px,3vw,42px);font-weight:650;letter-spacing:-.055em}
+.preview-three{background:linear-gradient(145deg,#f1eee9,#d9d0c4)}
+.preview-three:after{content:"Story";position:absolute;right:10%;top:12%;font-size:clamp(26px,3vw,44px);font-weight:650;letter-spacing:-.06em}
+.project-info{padding:12px 3px}
+.project-name{font-size:14px;font-weight:600}
+.project-meta{font-size:12px;color:var(--secondary);margin-top:4px}
+.templates-page{max-width:1180px;margin:0 auto}
+.page-intro{padding:45px 0 30px}
+.page-intro h1{font-size:48px;letter-spacing:-.055em;margin:8px 0 8px}
+.page-intro p{margin:0;color:var(--secondary);font-size:16px}
+.template-controls{display:flex;align-items:center;gap:10px;margin:0 0 24px}
+.search{height:38px;width:260px;border:1px solid var(--line);border-radius:19px;background:rgba(255,255,255,.65);padding:0 15px;color:var(--ink);outline:none}
+.search:focus{border-color:#80b7ec;box-shadow:0 0 0 4px rgba(0,113,227,.1)}
+.filters{display:flex;gap:5px;overflow:auto}
+.filter{height:34px;padding:0 12px;border-radius:17px;color:var(--secondary);font-size:12px;white-space:nowrap}
+.filter:hover{background:rgba(0,0,0,.045)}
+.filter.active{background:#1d1d1f;color:#fff}
+.template-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.template{cursor:pointer}
+.template-art{aspect-ratio:4/5;border-radius:16px;display:grid;place-items:center;font-size:22px;font-weight:650;letter-spacing:-.04em;overflow:hidden;transition:transform .25s}
+.template:hover .template-art{transform:scale(1.012)}
+.template:nth-child(1) .template-art{background:#e8edf7}
+.template:nth-child(2) .template-art{background:#e9e2d8}
+.template:nth-child(3) .template-art{background:#e5e9e4}
+.template:nth-child(4) .template-art{background:#e8e4ec}
+.template-name{font-size:13px;font-weight:600;margin-top:11px}
+.template-meta{font-size:11px;color:var(--secondary);margin-top:4px}
+.settings{max-width:800px;margin:0 auto;padding:52px 0}
+.settings h1{font-size:48px;letter-spacing:-.055em;margin:0 0 28px}
+.settings-group{background:rgba(255,255,255,.7);border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.setting{min-height:68px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.setting:last-child{border-bottom:0}.setting strong{font-size:14px}.setting span{font-size:13px;color:var(--secondary)}
+.mobile-tabs{display:none}
+.editor{
+  position:fixed;inset:0;z-index:50;background:#f5f5f7;color:var(--ink);display:none;
+  grid-template-rows:58px 1fr
+}
+.editor.open{display:grid}
+.editor-toolbar{
+  display:flex;align-items:center;justify-content:space-between;padding:0 12px 0 10px;
+  background:rgba(248,248,250,.74);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass);
+  border-bottom:1px solid rgba(0,0,0,.07)
+}
+.editor-group{display:flex;align-items:center;gap:3px}
+.editor-title{font-size:13px;font-weight:600;margin:0 8px}
+.editor-control{height:34px;min-width:34px;padding:0 9px;border-radius:10px;color:#3a3a3c;font-size:12px}
+.editor-control:hover{background:rgba(0,0,0,.055)}
+.save{font-size:11px;color:var(--secondary);margin-right:7px}
+.editor-main{min-height:0;position:relative;display:grid;grid-template-columns:66px 1fr 290px;background:#e8e8ed}
+.tool-rail{
+  background:rgba(250,250,252,.78);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass);
+  border-right:1px solid rgba(0,0,0,.07);padding:12px 8px;display:flex;flex-direction:column;gap:4px;z-index:3
+}
+.editor-tool{width:48px;height:46px;border-radius:12px;display:grid;place-items:center;gap:1px;color:#5d5d62;font-size:9px}
+.editor-tool .ts{font-size:17px}
+.editor-tool:hover{background:rgba(0,0,0,.05)}
+.editor-tool.active{background:#0071e3;color:white}
+.canvas-space{min-width:0;display:grid;place-items:center;overflow:hidden;padding:50px}
+.canvas{
+  width:min(78%,900px);aspect-ratio:16/10;background:white;box-shadow:0 18px 60px rgba(0,0,0,.18);
+  position:relative;overflow:hidden
+}
+.canvas-bg{position:absolute;inset:0;background:linear-gradient(145deg,#fbfbfb,#e5e5e7)}
+.canvas-title{position:absolute;left:9%;top:12%;font-size:clamp(30px,4vw,60px);font-weight:650;letter-spacing:-.065em}
+.canvas-copy{position:absolute;left:9%;top:30%;font-size:14px;color:#6e6e73}
+.canvas-orb{position:absolute;right:9%;bottom:12%;width:27%;aspect-ratio:1;border-radius:50%;background:#0071e3}
+.inspector{
+  background:rgba(250,250,252,.82);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass);
+  border-left:1px solid rgba(0,0,0,.07);overflow:auto
+}
+.inspector-section{padding:18px;border-bottom:1px solid rgba(0,0,0,.07)}
+.inspector-title{font-size:12px;font-weight:650;margin-bottom:13px}
+.layer{height:40px;padding:0 8px;border-radius:9px;display:flex;align-items:center;gap:9px;font-size:12px}
+.layer:hover{background:rgba(0,0,0,.04)}.layer.selected{background:rgba(0,113,227,.1);color:#0066cc;font-weight:600}
+.layer-icon{width:24px;height:24px;border-radius:6px;background:#e4e4e7;display:grid;place-items:center;font-size:11px}
+.property-row{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:7px}
+.property{height:34px;padding:0 9px;border:1px solid rgba(0,0,0,.08);border-radius:8px;background:rgba(255,255,255,.7);display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#6e6e73}
+.property b{font-weight:500;color:#1d1d1f}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,15px);opacity:0;pointer-events:none;background:rgba(30,30,32,.9);color:#fff;padding:10px 16px;border-radius:20px;font-size:12px;transition:.22s;z-index:100}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){
+ .app{grid-template-columns:1fr}.sidebar{display:none}.content{padding:8px 22px 84px}
+ .toolbar{padding:0 18px}.mobile-tabs{display:flex;position:fixed;z-index:20;left:12px;right:12px;bottom:12px;height:58px;border:1px solid rgba(255,255,255,.85);border-radius:20px;background:rgba(250,250,252,.78);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass);box-shadow:0 8px 30px rgba(0,0,0,.1);justify-content:space-around;align-items:center}
+ .mobile-tabs button{font-size:10px;color:#777;display:grid;place-items:center;gap:2px}.mobile-tabs button.active{color:#0066cc;font-weight:600}
+ .hero{padding:55px 0 65px}.hero h1{font-size:54px}.hero p{font-size:18px}
+ .project-list{grid-template-columns:1fr 1fr}.template-grid{grid-template-columns:1fr 1fr}
+ .editor-main{grid-template-columns:58px 1fr}.inspector{display:none}.canvas-space{padding:25px}.canvas{width:90%}
+}
+@media(max-width:520px){
+ .hero h1{font-size:45px}.hero p{font-size:17px}.hero-actions{gap:14px}
+ .project-list,.template-grid{grid-template-columns:1fr}.section-title{font-size:22px}
+ .template-controls{display:block}.search{width:100%;margin-bottom:9px}.filters{padding-bottom:3px}
+ .editor-title{display:none}.save{display:none}.canvas{width:96%;aspect-ratio:4/5}.tool-rail{padding:8px 5px}.editor-tool{width:48px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
 <div class="app">
 <aside class="sidebar">
-<div class="brand"><div class="mark">P</div><span>Paper String</span></div>
-<nav class="nav">
-<button class="active" data-view="home"><span class="ico">⌂</span>Home</button>
-<button data-view="projects"><span class="ico">▦</span>Projects</button>
-<button data-view="templates"><span class="ico">□</span>Templates</button>
-</nav>
-<div class="sidebar-foot"><button class="nav-btn nav" style="display:block"><button data-view="settings"><span class="ico">⚙</span>Settings</button></button></div>
+  <div class="brand"><div class="brand-mark">P</div><span>Paper String</span></div>
+  <div class="nav-group">
+    <div class="nav-label">Workspace</div>
+    <button class="nav-item active" data-view="home"><span class="symbol">⌂</span>Home</button>
+    <button class="nav-item" data-view="projects"><span class="symbol">▱</span>Projects</button>
+    <button class="nav-item" data-view="templates"><span class="symbol">▦</span>Templates</button>
+  </div>
+  <div class="sidebar-bottom"><button class="nav-item" data-view="settings"><span class="symbol">⚙</span>Settings</button></div>
 </aside>
+
 <main class="main">
-<header class="topbar"><div class="top-left"><span class="page-title" id="pageTitle">Home</span></div><div class="top-actions"><button class="btn" id="continueBtn">Continue</button><button class="btn primary" id="newBtn">Create</button></div></header>
+<header class="toolbar">
+  <div class="toolbar-left"><span class="toolbar-title" id="pageTitle">Home</span></div>
+  <div class="toolbar-right"><button class="tool-btn" id="continueBtn">Continue</button><button class="primary" id="newBtn">Create</button></div>
+</header>
+
 <section class="content">
-<div class="view active" id="home">
-<div class="hero"><div class="eyebrow">Creative workspace</div><h1>Make something worth keeping.</h1><p>A focused place to create, edit, and export visual work. Start with a blank canvas or shape an idea from a template.</p><div class="actions"><button class="btn primary" id="blankBtn">Create blank</button><button class="btn" data-view="templates">Browse templates</button></div></div>
-<div class="section-head"><h2>Recent projects</h2><button class="btn" data-view="projects">View all</button></div>
-<div class="project-grid">
-<div class="project" data-open-editor><div class="thumb">1080 × 1080</div><div class="project-meta"><div class="project-name">Untitled design</div><div class="project-sub">Saved just now</div></div></div>
-<div class="project"><div class="thumb">1920 × 1080</div><div class="project-meta"><div class="project-name">Campaign concept</div><div class="project-sub">Yesterday</div></div></div>
-<div class="project"><div class="thumb">1080 × 1920</div><div class="project-meta"><div class="project-name">Story study</div><div class="project-sub">Sep 29</div></div></div>
-</div>
-</div>
-<div class="view" id="projects">
-<div class="section-head"><div><div class="eyebrow">Your workspace</div><h2 style="margin-top:7px">Projects</h2></div><button class="btn primary" id="projectCreate">Create project</button></div>
-<div class="project-grid"><div class="project" data-open-editor><div class="thumb">1080 × 1080</div><div class="project-meta"><div class="project-name">Untitled design</div><div class="project-sub">Saved just now</div></div></div><div class="project"><div class="thumb">1920 × 1080</div><div class="project-meta"><div class="project-name">Campaign concept</div><div class="project-sub">Yesterday</div></div></div><div class="project"><div class="thumb">2400 × 1350</div><div class="project-meta"><div class="project-name">Product study</div><div class="project-sub">Sep 28</div></div></div></div>
-</div>
-<div class="view" id="templates">
-<div class="section-head"><div><div class="eyebrow">Start from structure</div><h2 style="margin-top:7px">Templates</h2></div></div>
-<div class="template-tools"><input class="search" placeholder="Search templates" aria-label="Search templates"><div class="chips"><button class="chip active">All</button><button class="chip">Social</button><button class="chip">Print</button><button class="chip">Presentation</button></div></div>
-<div class="template-grid">
-<div class="template" data-open-editor><div class="template-preview">Editorial</div><div class="template-info"><strong>Editorial study</strong><span>1080 × 1350 · Placeholder</span></div></div>
-<div class="template" data-open-editor><div class="template-preview">Poster</div><div class="template-info"><strong>Quiet poster</strong><span>2400 × 3000 · Placeholder</span></div></div>
-<div class="template" data-open-editor><div class="template-preview">Campaign</div><div class="template-info"><strong>Campaign layout</strong><span>1920 × 1080 · Placeholder</span></div></div>
-<div class="template" data-open-editor><div class="template-preview">Story</div><div class="template-info"><strong>Story frame</strong><span>1080 × 1920 · Placeholder</span></div></div>
-</div>
-</div>
-<div class="view" id="settings"><div class="section-head"><div><div class="eyebrow">Preferences</div><h2 style="margin-top:7px">Settings</h2></div></div><div style="max-width:620px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:4px"><div class="panel-section" style="color:#171717"><strong>Appearance</strong><p class="muted" style="font-size:13px">Paper String uses a restrained light workspace by default.</p></div><div class="panel-section" style="color:#171717"><strong>Editor preferences</strong><p class="muted" style="font-size:13px">Canvas behavior, keyboard shortcuts, imported fonts and accessibility preferences will live here.</p></div></div></div>
-</section>
-</main>
-<nav class="mobile-nav"><button class="active" data-view="home">⌂<span>Home</span></button><button data-view="projects">▦<span>Projects</span></button><button data-view="templates">□<span>Templates</span></button><button data-view="settings">⚙<span>Settings</span></button></nav>
+<div class="home view active" id="home">
+  <div class="hero">
+    <div class="kicker">Paper String</div>
+    <h1>Make something<br>worth keeping.</h1>
+    <p>A precise, quiet workspace for creating visual work. Start with your own canvas or begin from a structure you can make your own.</p>
+    <div class="hero-actions"><button class="primary" id="blankBtn">Create a canvas</button><button class="text-action" data-view="templates">Explore templates →</button></div>
+  </div>
+  <div class="section">
+    <div class="section-head"><h2 class="section-title">Recent</h2><button class="section-link" data-view="projects">See all</button></div>
+    <div class="project-list">
+      <article class="project" data-open-editor><div class="project-preview preview-one"></div><div class="project-info"><div class="project-name">Untitled design</div><div class="project-meta">1080 × 1080 · Just now</div></div></article>
+      <article class="project" data-open-editor><div class="project-preview preview-two"></div><div class="project-info"><div class="project-name">Campaign concept</div><div class="project-meta">1920 × 1080 · Yesterday</div></div></article>
+      <article class="project" data-open-editor><div class="project-preview preview-three"></div><div class="project-info"><div class="project-name">Story study</div><div class="project-meta">1080 × 1920 · Sep 29</div></div></article>
+    </div>
+  </div>
 </div>
 
-<div class="editor" id="editor" aria-label="Paper String editor">
-<header class="editorbar"><div class="group"><button id="closeEditor">←</button><span class="docname">Untitled design</span><button>↶</button><button>↷</button></div><div class="group"><span style="font-size:11px;color:#aaa">Saved</span><button>−</button><button>100%</button><button>＋</button><button class="blue" id="exportBtn" style="background:#155eef;color:#fff;padding:0 12px">Export</button></div></header>
-<div class="editorbody">
-<aside class="tools">
-<button class="tool selected"><span>⌁</span>Select</button><button class="tool"><span>✥</span>Move</button><button class="tool"><span>＋</span>Image</button><button class="tool"><span>T</span>Text</button><button class="tool"><span>✎</span>Draw</button><button class="tool"><span>⌫</span>Eraser</button><button class="tool"><span>◇</span>Shape</button><button class="tool"><span>◉</span>Color</button>
+<div class="templates-page view" id="templates">
+  <div class="page-intro"><div class="kicker">Paper String</div><h1>Templates</h1><p>Start with a structure. Make it yours.</p></div>
+  <div class="template-controls"><input class="search" placeholder="Search templates" aria-label="Search templates"><div class="filters"><button class="filter active">All</button><button class="filter">Social</button><button class="filter">Print</button><button class="filter">Presentation</button></div></div>
+  <div class="template-grid">
+    <article class="template" data-open-editor><div class="template-art">Editorial</div><div class="template-name">Editorial study</div><div class="template-meta">1080 × 1350 · Placeholder</div></article>
+    <article class="template" data-open-editor><div class="template-art">Poster</div><div class="template-name">Quiet poster</div><div class="template-meta">2400 × 3000 · Placeholder</div></article>
+    <article class="template" data-open-editor><div class="template-art">Campaign</div><div class="template-name">Campaign layout</div><div class="template-meta">1920 × 1080 · Placeholder</div></article>
+    <article class="template" data-open-editor><div class="template-art">Story</div><div class="template-name">Story frame</div><div class="template-meta">1080 × 1920 · Placeholder</div></article>
+  </div>
+</div>
+
+<div class="templates-page view" id="projects">
+  <div class="page-intro"><div class="kicker">Your workspace</div><h1>Projects</h1><p>Your private creative work, organized simply.</p></div>
+  <div class="section-head"><h2 class="section-title">All projects</h2><button class="primary" id="projectCreate">New project</button></div>
+  <div class="project-list">
+    <article class="project" data-open-editor><div class="project-preview preview-one"></div><div class="project-info"><div class="project-name">Untitled design</div><div class="project-meta">1080 × 1080</div></div></article>
+    <article class="project" data-open-editor><div class="project-preview preview-two"></div><div class="project-info"><div class="project-name">Campaign concept</div><div class="project-meta">1920 × 1080</div></div></article>
+    <article class="project" data-open-editor><div class="project-preview preview-three"></div><div class="project-info"><div class="project-name">Story study</div><div class="project-meta">1080 × 1920</div></div></article>
+  </div>
+</div>
+
+<div class="settings view" id="settings">
+  <div class="kicker">Paper String</div><h1>Settings</h1>
+  <div class="settings-group">
+    <div class="setting"><strong>Appearance</strong><span>Light · System-aware</span></div>
+    <div class="setting"><strong>Editor preferences</strong><span>Canvas, shortcuts, tools</span></div>
+    <div class="setting"><strong>Accessibility</strong><span>Motion, contrast, keyboard</span></div>
+    <div class="setting"><strong>Imported fonts</strong><span>Manage document fonts</span></div>
+  </div>
+</div>
+</section>
+</main>
+
+<nav class="mobile-tabs"><button class="active" data-view="home">⌂<span>Home</span></button><button data-view="projects">▱<span>Projects</span></button><button data-view="templates">▦<span>Templates</span></button><button data-view="settings">⚙<span>Settings</span></button></nav>
+</div>
+
+<div class="editor" id="editor">
+<header class="editor-toolbar">
+  <div class="editor-group"><button class="editor-control" id="closeEditor">‹</button><span class="editor-title">Untitled design</span><button class="editor-control">↶</button><button class="editor-control">↷</button></div>
+  <div class="editor-group"><span class="save">Saved</span><button class="editor-control">−</button><button class="editor-control">100%</button><button class="editor-control">＋</button><button class="primary" id="exportBtn">Export</button></div>
+</header>
+<div class="editor-main">
+<aside class="tool-rail">
+  <button class="editor-tool active"><span class="ts">⌁</span>Select</button>
+  <button class="editor-tool"><span class="ts">✥</span>Move</button>
+  <button class="editor-tool"><span class="ts">＋</span>Image</button>
+  <button class="editor-tool"><span class="ts">T</span>Text</button>
+  <button class="editor-tool"><span class="ts">✎</span>Draw</button>
+  <button class="editor-tool"><span class="ts">⌫</span>Eraser</button>
+  <button class="editor-tool"><span class="ts">◇</span>Shape</button>
+  <button class="editor-tool"><span class="ts">◉</span>Color</button>
 </aside>
-<section class="canvas-area"><div class="canvas-wrap"><div class="canvas-demo"><h2>Paper String</h2><p>A calm canvas for ideas.</p><div class="shape"></div></div></div></section>
-<aside class="rightpanel"><div class="panel-section"><div class="panel-title">Layers</div><div class="layer active"><div class="mini">T</div><span>Paper String</span></div><div class="layer"><div class="mini">○</div><span>Shape</span></div><div class="layer"><div class="mini">▧</div><span>Background</span></div></div><div class="panel-section"><div class="panel-title">Transform</div><div class="prop"><div class="field">X <span>120</span></div><div class="field">Y <span>80</span></div><div class="field">W <span>640</span></div><div class="field">H <span>400</span></div></div></div><div class="panel-section"><div class="panel-title">Appearance</div><div class="prop"><div class="field">Opacity <span>100%</span></div><div class="field">Rotation <span>0°</span></div></div></div></aside>
+<section class="canvas-space">
+  <div class="canvas"><div class="canvas-bg"></div><div class="canvas-title">Paper String</div><div class="canvas-copy">A calm canvas for ideas.</div><div class="canvas-orb"></div></div>
+</section>
+<aside class="inspector">
+  <div class="inspector-section"><div class="inspector-title">Layers</div><div class="layer selected"><span class="layer-icon">T</span>Paper String</div><div class="layer"><span class="layer-icon">○</span>Shape</div><div class="layer"><span class="layer-icon">▧</span>Background</div></div>
+  <div class="inspector-section"><div class="inspector-title">Transform</div><div class="property-row"><div class="property">X <b>120</b></div><div class="property">Y <b>80</b></div></div><div class="property-row"><div class="property">W <b>640</b></div><div class="property">H <b>400</b></div></div></div>
+  <div class="inspector-section"><div class="inspector-title">Appearance</div><div class="property-row"><div class="property">Opacity <b>100%</b></div><div class="property">Rotation <b>0°</b></div></div></div>
+</aside>
 </div>
 </div>
 <div class="toast" id="toast">Export prepared</div>
+
 <script>
 const views=[...document.querySelectorAll('.view')], navs=[...document.querySelectorAll('[data-view]')], title=document.getElementById('pageTitle');
-function showView(id){views.forEach(v=>v.classList.toggle('active',v.id===id));navs.forEach(n=>n.classList.toggle('active',n.dataset.view===id));title.textContent=id[0].toUpperCase()+id.slice(1);document.querySelector('.content').scrollTop=0}
+function showView(id){
+  views.forEach(v=>v.classList.toggle('active',v.id===id));
+  navs.forEach(n=>n.classList.toggle('active',n.dataset.view===id));
+  title.textContent=id.charAt(0).toUpperCase()+id.slice(1);
+  document.querySelector('.content').scrollTop=0;
+}
 navs.forEach(n=>n.addEventListener('click',()=>showView(n.dataset.view)));
-document.querySelectorAll('[data-open-editor]').forEach(x=>x.addEventListener('click',()=>document.getElementById('editor').classList.add('open')));
-document.getElementById('blankBtn').onclick=()=>document.getElementById('editor').classList.add('open');
-document.getElementById('newBtn').onclick=()=>document.getElementById('editor').classList.add('open');
-document.getElementById('continueBtn').onclick=()=>document.getElementById('editor').classList.add('open');
-document.getElementById('projectCreate').onclick=()=>document.getElementById('editor').classList.add('open');
+function openEditor(){document.getElementById('editor').classList.add('open')}
+document.querySelectorAll('[data-open-editor]').forEach(x=>x.addEventListener('click',openEditor));
+['blankBtn','newBtn','continueBtn','projectCreate'].forEach(id=>{const e=document.getElementById(id);if(e)e.onclick=openEditor});
 document.getElementById('closeEditor').onclick=()=>document.getElementById('editor').classList.remove('open');
-document.getElementById('exportBtn').onclick=()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)};
-document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));c.classList.add('active')});
+document.getElementById('exportBtn').onclick=()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1700)};
+document.querySelectorAll('.filter').forEach(f=>f.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));f.classList.add('active')});
+document.querySelectorAll('.editor-tool').forEach(t=>t.onclick=()=>{document.querySelectorAll('.editor-tool').forEach(x=>x.classList.remove('active'));t.classList.add('active')});
 </script>
-</body></html>
+</body>
+</html>
