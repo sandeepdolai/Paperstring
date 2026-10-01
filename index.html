@@ -19,6 +19,53 @@
 @media(min-width:901px){.mobile-panel-toggle{display:none!important}}
 @media(max-width:520px){.hero h1{font-size:45px}.hero p{font-size:17px}.project-list,.template-grid{grid-template-columns:1fr}.template-controls{display:block}.search{width:100%;margin-bottom:9px}.editor-title,.save{display:none}.canvas{width:96%;aspect-ratio:4/5}.tool-rail{left:7px;right:7px}.tool{width:43px;font-size:9px;background:transparent}.tool-icon{width:28px;height:28px}.tool:nth-child(n+7){display:none}.quick-panel{bottom:88px;max-height:58%}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Native-feeling adjustment sliders */
+.slider-control{
+  padding:10px 2px 4px;
+}
+.slider-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:9px;
+  font-size:12px;
+}
+.slider-row strong{font-weight:600}
+.slider-value{color:var(--muted);font-variant-numeric:tabular-nums}
+.ps-slider{
+  -webkit-appearance:none;
+  appearance:none;
+  width:100%;
+  height:4px;
+  border-radius:999px;
+  background:linear-gradient(to right,var(--blue) 0%,var(--blue) 50%,rgba(0,0,0,.12) 50%,rgba(0,0,0,.12) 100%);
+  outline:none;
+  cursor:pointer;
+}
+.ps-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  appearance:none;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 1px 5px rgba(0,0,0,.2),0 0 0 1px rgba(0,0,0,.08);
+}
+.ps-slider::-moz-range-thumb{
+  width:20px;
+  height:20px;
+  border:0;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 1px 5px rgba(0,0,0,.2),0 0 0 1px rgba(0,0,0,.08);
+}
+.ps-slider:focus-visible{outline:2px solid rgba(0,113,227,.35);outline-offset:5px}
+@media(max-width:520px){
+  .slider-control{padding-top:8px}
+  .ps-slider::-webkit-slider-thumb{width:22px;height:22px}
+  .ps-slider::-moz-range-thumb{width:22px;height:22px}
+}
 </style>
 </head>
 <body>
@@ -56,7 +103,7 @@
 <aside class="quick-panel" id="quickPanel">
 <div class="panel-heading" id="panelHeading">Select</div><p class="panel-help" id="panelHelp">Choose something on your canvas to edit it.</p>
 <div class="quick-section"><div class="quick-title">Common actions</div><div class="action-grid" id="commonActions"><button class="action"><strong>Move</strong><small>Place it anywhere</small></button><button class="action"><strong>Resize</strong><small>Make it bigger or smaller</small></button><button class="action"><strong>Rotate</strong><small>Turn it around</small></button><button class="action"><strong>Duplicate</strong><small>Make a copy</small></button></div></div>
-<div class="quick-section" id="contextSection"><div class="quick-title" id="contextTitle">Adjust</div><div class="simple-row"><button class="simple-control">Size <b>100%</b></button><button class="simple-control">Rotate <b>0°</b></button></div><button class="more" id="moreBtn">More options</button><div class="advanced" id="advanced"><div class="tip">Advanced controls stay here until you need them. This keeps the main editor easy to understand.</div><div class="simple-row"><button class="simple-control">Position <b>120, 80</b></button><button class="simple-control">Transparency <b>100%</b></button></div></div></div>
+<div class="quick-section" id="contextSection"><div class="quick-title" id="contextTitle">Adjust</div><div class="slider-control"><div class="slider-row"><strong>Size</strong><span class="slider-value" id="sizeValue">100%</span></div><input class="ps-slider" id="sizeSlider" type="range" min="10" max="200" value="100" aria-label="Size"></div><div class="slider-control"><div class="slider-row"><strong>Rotate</strong><span class="slider-value" id="rotateValue">0°</span></div><input class="ps-slider" id="rotateSlider" type="range" min="-180" max="180" value="0" aria-label="Rotate"></div><button class="more" id="moreBtn">More options</button><div class="advanced" id="advanced"><div class="tip">Advanced controls stay here until you need them. This keeps the main editor easy to understand.</div><div class="simple-row"><button class="simple-control">Position <b>120, 80</b></button><button class="simple-control">Transparency <b>100%</b></button></div></div></div>
 <div class="quick-section"><div class="quick-title">Layers</div><div class="layers"><div class="layer selected"><span class="layer-icon">T</span>Paper String</div><div class="layer"><span class="layer-icon">○</span>Shape</div><div class="layer"><span class="layer-icon">▧</span>Background</div></div><button class="add-layer">＋ Add layer</button></div>
 </aside>
 </div>
@@ -90,6 +137,14 @@ function setTool(key){
 }
 document.querySelectorAll('.tool').forEach(t=>t.onclick=()=>setTool(t.dataset.tool));
 document.getElementById('moreBtn').onclick=()=>document.getElementById('advanced').classList.toggle('open');
+function bindSlider(id,valueId,suffix){
+ const s=document.getElementById(id),v=document.getElementById(valueId);
+ if(!s)return;
+ const paint=()=>{const min=+s.min,max=+s.max,val=+s.value,p=(val-min)/(max-min)*100;s.style.background='linear-gradient(to right,var(--blue) 0%,var(--blue) '+p+'%,rgba(0,0,0,.12) '+p+'%,rgba(0,0,0,.12) 100%)';v.textContent=val+suffix};
+ s.addEventListener('input',paint);paint();
+}
+bindSlider('sizeSlider','sizeValue','%');
+bindSlider('rotateSlider','rotateValue','°');
 </script>
 </body>
 </html>
