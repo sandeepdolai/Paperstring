@@ -103,7 +103,7 @@
 <aside class="quick-panel" id="quickPanel">
 <div class="panel-heading" id="panelHeading">Select</div><p class="panel-help" id="panelHelp">Choose something on your canvas to edit it.</p>
 <div class="quick-section"><div class="quick-title">Common actions</div><div class="action-grid" id="commonActions"><button class="action"><strong>Move</strong><small>Place it anywhere</small></button><button class="action"><strong>Resize</strong><small>Make it bigger or smaller</small></button><button class="action"><strong>Rotate</strong><small>Turn it around</small></button><button class="action"><strong>Duplicate</strong><small>Make a copy</small></button></div></div>
-<div class="quick-section" id="contextSection"><div class="quick-title" id="contextTitle">Adjust</div><div class="slider-control"><div class="slider-row"><strong>Size</strong><span class="slider-value" id="sizeValue">100%</span></div><input class="ps-slider" id="sizeSlider" type="range" min="10" max="200" value="100" aria-label="Size"></div><div class="slider-control"><div class="slider-row"><strong>Rotate</strong><span class="slider-value" id="rotateValue">0°</span></div><input class="ps-slider" id="rotateSlider" type="range" min="-180" max="180" value="0" aria-label="Rotate"></div><button class="more" id="moreBtn">More options</button><div class="advanced" id="advanced"><div class="tip">Advanced controls stay here until you need them. This keeps the main editor easy to understand.</div><div class="simple-row"><button class="simple-control">Position <b>120, 80</b></button><button class="simple-control">Transparency <b>100%</b></button></div></div></div>
+<div class="quick-section" id="contextSection"><div class="quick-title" id="contextTitle">Options</div><div id="contextBody"></div></div>
 <div class="quick-section"><div class="quick-title">Layers</div><div class="layers"><div class="layer selected"><span class="layer-icon">T</span>Paper String</div><div class="layer"><span class="layer-icon">○</span>Shape</div><div class="layer"><span class="layer-icon">▧</span>Background</div></div><button class="add-layer">＋ Add layer</button></div>
 </aside>
 </div>
@@ -128,23 +128,43 @@ erase:['Eraser','Erase parts of the selected drawing or image.',['Size|Change er
 shape:['Shape','Add a simple shape to your canvas.',['Rectangle|Add a rectangle','Circle|Add a circle','Line|Add a line','Color|Choose a color'],'Shape style'],
 color:['Color','Choose colors for the selected item or tool.',['Eyedropper|Pick a color from the canvas','Palette|Choose a saved color','Recent|Use a recent color','Picker|Choose any color'],'Color']
 };
+function sliderMarkup(id,label,min,max,value,suffix){
+ return '<div class="slider-control"><div class="slider-row"><strong>'+label+'</strong><span class="slider-value" id="'+id+'Value">'+value+suffix+'</span></div><input class="ps-slider" id="'+id+'" type="range" min="'+min+'" max="'+max+'" value="'+value+'" aria-label="'+label+'"></div>';
+}
+function simpleMarkup(items){
+ return '<div class="simple-row">'+items.map(x=>'<button class="simple-control">'+x[0]+' <b>'+x[1]+'</b></button>').join('')+'</div>';
+}
+function renderContext(key){
+ const title=document.getElementById('contextTitle'),body=document.getElementById('contextBody');
+ const configs={
+   select:{title:'Transform',html:simpleMarkup([['Position','120, 80'],['Rotation','0°']])},
+   image:{title:'Image options',html:'<button class="more" id="imageMore">More options</button>'},
+   text:{title:'Text style',html:sliderMarkup('textSizeSlider','Text size',8,200,100,'%')},
+   draw:{title:'Drawing',html:sliderMarkup('brushSlider','Brush size',1,100,20,' px')},
+   erase:{title:'Eraser settings',html:sliderMarkup('eraserSlider','Eraser size',1,100,20,' px')},
+   shape:{title:'Shape style',html:'<button class="more">Fill and stroke</button>'},
+   color:{title:'Color',html:'<button class="more">Open color picker</button>'}
+ };
+ const d=configs[key]||configs.select;
+ title.textContent=d.title;
+ body.innerHTML=d.html;
+ if(key==='text')bindSlider('textSizeSlider','textSizeSliderValue','%');
+ if(key==='draw')bindSlider('brushSlider','brushSliderValue',' px');
+ if(key==='erase')bindSlider('eraserSlider','eraserSliderValue',' px');
+}
 function setTool(key){
- const d=data[key]||data.select;document.getElementById('panelHeading').textContent=d[0];document.getElementById('panelHelp').textContent=d[1];document.getElementById('contextTitle').textContent=d[3];
+ const d=data[key]||data.select;document.getElementById('panelHeading').textContent=d[0];document.getElementById('panelHelp').textContent=d[1];renderContext(key);
  const grid=document.getElementById('commonActions');grid.innerHTML=d[2].map(x=>{const [a,b]=x.split('|');return '<button class="action"><strong>'+a+'</strong><small>'+b+'</small></button>'}).join('');
- document.getElementById('advanced').classList.remove('open');
  document.querySelectorAll('.tool').forEach(t=>t.classList.toggle('active',t.dataset.tool===key));
  if(innerWidth<=900)document.getElementById('quickPanel').classList.add('open');
 }
 document.querySelectorAll('.tool').forEach(t=>t.onclick=()=>setTool(t.dataset.tool));
-document.getElementById('moreBtn').onclick=()=>document.getElementById('advanced').classList.toggle('open');
 function bindSlider(id,valueId,suffix){
  const s=document.getElementById(id),v=document.getElementById(valueId);
  if(!s)return;
  const paint=()=>{const min=+s.min,max=+s.max,val=+s.value,p=(val-min)/(max-min)*100;s.style.background='linear-gradient(to right,var(--blue) 0%,var(--blue) '+p+'%,rgba(0,0,0,.12) '+p+'%,rgba(0,0,0,.12) 100%)';v.textContent=val+suffix};
  s.addEventListener('input',paint);paint();
 }
-bindSlider('sizeSlider','sizeValue','%');
-bindSlider('rotateSlider','rotateValue','°');
 </script>
 </body>
 </html>
