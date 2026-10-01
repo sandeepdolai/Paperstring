@@ -93,3 +93,132 @@ document.getElementById('moreBtn').onclick=()=>document.getElementById('advanced
 </script>
 </body>
 </html>
+
+/* Product-wide visual refinement: hierarchy first, borders only when functional */
+:root{
+  --bg:#f5f5f7;
+  --surface:rgba(255,255,255,.72);
+  --solid:#fff;
+  --ink:#1d1d1f;
+  --muted:#6e6e73;
+  --line:rgba(0,0,0,.075);
+  --blue:#0071e3;
+  --blueSoft:rgba(0,113,227,.085);
+}
+
+/* Stop treating every control as a card */
+.action-grid{grid-template-columns:1fr 1fr;gap:0 24px}
+.action{
+  min-height:56px;
+  border:0;
+  border-bottom:1px solid var(--line);
+  border-radius:0;
+  background:transparent;
+  padding:9px 2px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.action:nth-child(3),.action:nth-child(4){border-bottom:0}
+.action:hover{background:rgba(0,0,0,.025)}
+.action strong{font-size:13px;line-height:1.25;font-weight:600;letter-spacing:-.01em}
+.action small{font-size:10.5px;line-height:1.3;margin-top:3px;color:var(--muted)}
+
+.quick-panel{padding:22px 24px}
+.panel-heading{font-size:19px;line-height:1.2;margin:1px 0 5px;letter-spacing:-.03em}
+.panel-help{font-size:13px;line-height:1.45;margin:0 0 22px;max-width:260px}
+.quick-section{padding:20px 0;border-top:1px solid var(--line)}
+.quick-section:first-of-type{padding-top:0;border-top:0}
+.quick-title{font-size:10px;letter-spacing:.06em;margin-bottom:12px;color:#7b7b80}
+.simple-row{gap:10px}
+.simple-control{
+  height:40px;
+  border:0;
+  border-radius:9px;
+  background:rgba(0,0,0,.045);
+  padding:0 11px;
+}
+.more{height:40px;border:0;background:rgba(0,0,0,.045)}
+.more:hover{background:rgba(0,0,0,.07)}
+
+.layers{margin-top:2px}
+.layer{
+  height:44px;
+  border-radius:9px;
+  padding:0 7px;
+  gap:9px;
+}
+.layer-icon{width:26px;height:26px}
+.layer.selected{background:var(--blueSoft)}
+.add-layer{
+  height:40px;
+  margin-top:10px;
+  border-radius:10px;
+  background:rgba(0,0,0,.055);
+  color:var(--ink);
+  font-weight:600;
+}
+.add-layer:hover{background:rgba(0,0,0,.085)}
+
+.contextSection .advanced{margin-top:10px}
+.tip{padding:8px 0}
+
+/* Softer application shell: structure comes from spacing, not outlines */
+.sidebar{
+  border:0;
+  box-shadow:0 8px 32px rgba(0,0,0,.055);
+}
+.nav-item{border-radius:9px}
+.toolbar{height:64px}
+.content{padding-left:48px;padding-right:48px}
+.section{padding-bottom:80px}
+.section-head{margin-bottom:22px}
+.project-preview,.template-art{border-radius:14px;box-shadow:none}
+.project:hover .project-preview{box-shadow:0 14px 42px rgba(0,0,0,.08)}
+.project-info{padding:13px 2px}
+.project-name,.template-name{letter-spacing:-.01em}
+.project-meta,.template-meta{line-height:1.4}
+
+.template-controls{gap:16px}
+.search{
+  border:0;
+  background:rgba(0,0,0,.045);
+  border-radius:10px;
+}
+.filter{border-radius:9px}
+.filter.active{background:#1d1d1f}
+
+.settings-group{
+  border:0;
+  border-radius:14px;
+  background:rgba(255,255,255,.64);
+}
+.setting{min-height:64px;padding:0 20px}
+.setting span{font-size:12px}
+
+.hero h1,.page-intro h1,.settings h1{
+  font-weight:650;
+}
+
+/* Editor controls: only the canvas should visually dominate */
+.editor-toolbar{border:0}
+.editor-body{background:#f1f1f4}
+.tool-rail{border:0}
+.tool.active{background:transparent}
+.tool.active .tool-icon{background:var(--blue);color:#fff}
+.quick-panel{border:0}
+.canvas{box-shadow:0 22px 70px rgba(0,0,0,.13)}
+
+@media(max-width:900px){
+  .content{padding-left:22px;padding-right:22px}
+  .quick-panel{padding:20px 22px}
+  .action-grid{grid-template-columns:1fr 1fr;gap:0 22px}
+  .action{min-height:58px}
+}
+@media(max-width:520px){
+  .action-grid{grid-template-columns:1fr}
+  .action:nth-child(3){border-bottom:1px solid var(--line)}
+  .action:nth-child(4){border-bottom:0}
+  .action{min-height:50px;padding:7px 2px}
+  .panel-help{max-width:none}
+}
