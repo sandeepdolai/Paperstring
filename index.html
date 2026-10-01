@@ -152,10 +152,22 @@ function renderContext(key){
  if(key==='draw')bindSlider('brushSlider','brushSliderValue',' px');
  if(key==='erase')bindSlider('eraserSlider','eraserSliderValue',' px');
 }
+function removeEraserRotation(){
+ if(!document.getElementById('panelHeading'))return;
+ document.querySelectorAll('.action,.slider-control,.simple-control,.advanced *').forEach(el=>{
+   const label=(el.querySelector('strong')?.textContent||el.textContent||'').trim().toLowerCase();
+   if(label.startsWith('rotate') || label.includes('rotation')){
+     if(el.classList.contains('simple-control') && !el.querySelector('strong')) el.remove();
+     else if(el.classList.contains('action') || el.classList.contains('slider-control')) el.remove();
+     else if(label.startsWith('rotate')) el.remove();
+   }
+ });
+}
 function setTool(key){
  const d=data[key]||data.select;document.getElementById('panelHeading').textContent=d[0];document.getElementById('panelHelp').textContent=d[1];renderContext(key);
  const grid=document.getElementById('commonActions');grid.innerHTML=d[2].map(x=>{const [a,b]=x.split('|');return '<button class="action"><strong>'+a+'</strong><small>'+b+'</small></button>'}).join('');
  document.querySelectorAll('.tool').forEach(t=>t.classList.toggle('active',t.dataset.tool===key));
+ if(key==='erase')removeEraserRotation();
  if(innerWidth<=900)document.getElementById('quickPanel').classList.add('open');
 }
 document.querySelectorAll('.tool').forEach(t=>t.onclick=()=>setTool(t.dataset.tool));
