@@ -6,274 +6,159 @@
 <meta name="theme-color" content="#f5f5f7">
 <title>Paper String</title>
 <style>
-:root{--bg:#f5f5f7;--surface:rgba(255,255,255,.78);--solid:#fff;--ink:#1d1d1f;--muted:#6e6e73;--line:rgba(0,0,0,.09);--blue:#0071e3;--blueSoft:rgba(0,113,227,.1);--glass:blur(24px) saturate(180%);--shadow:0 14px 50px rgba(0,0,0,.1)}
-*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}body{overflow:hidden}button,input{font:inherit}button{border:0;background:none;color:inherit;cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid rgba(0,113,227,.3);outline-offset:2px}
-.app{height:100dvh;display:grid;grid-template-columns:250px 1fr}.sidebar{margin:12px 0 12px 12px;border-radius:22px;background:rgba(250,250,252,.74);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass);border:1px solid rgba(255,255,255,.8);box-shadow:0 8px 32px rgba(0,0,0,.06);padding:16px 10px;display:flex;flex-direction:column;z-index:5}.brand{display:flex;align-items:center;gap:10px;padding:8px 10px 22px;font-size:17px;font-weight:650}.brand-mark{width:30px;height:30px;border-radius:9px;background:#1d1d1f;color:white;display:grid;place-items:center;font-size:13px;font-weight:650}.nav-group{display:grid;gap:2px}.nav-label{padding:9px 12px 6px;color:#86868b;font-size:11px;font-weight:600}.nav-item{height:40px;padding:0 12px;border-radius:10px;display:flex;align-items:center;gap:11px;color:#515154;font-size:13px;text-align:left}.nav-item:hover{background:rgba(0,0,0,.045)}.nav-item.active{background:var(--blueSoft);color:#0066cc;font-weight:600}.symbol{width:18px;text-align:center}.sidebar-bottom{margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
-.main{min-width:0;display:flex;flex-direction:column;overflow:hidden}.toolbar{height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 28px}.toolbar-title{font-size:14px;font-weight:600}.toolbar-right{display:flex;align-items:center;gap:8px}.tool-btn{height:34px;padding:0 10px;border-radius:10px;color:#3a3a3c;font-size:13px}.tool-btn:hover{background:rgba(0,0,0,.055)}.primary{height:36px;padding:0 16px;border-radius:18px;background:var(--blue);color:#fff;font-size:13px;font-weight:600}.content{overflow:auto;min-height:0;padding:8px 42px 70px}.home,.templates-page{max-width:1180px;margin:auto}.hero{padding:74px 0 88px;max-width:860px}.kicker{font-size:14px;font-weight:600;color:var(--muted)}.hero h1{font-size:clamp(48px,6.5vw,86px);line-height:.98;letter-spacing:-.065em;margin:14px 0 24px;font-weight:650}.hero p{font-size:20px;line-height:1.42;color:var(--muted);max-width:650px;margin:0}.hero-actions{display:flex;gap:18px;margin-top:32px}.text-action{font-size:14px;color:#0066cc;font-weight:600}.section{padding-bottom:72px}.section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px}.section-title{font-size:26px;letter-spacing:-.04em;margin:0}.section-link{font-size:13px;color:#0066cc;font-weight:600}.project-list{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.project{cursor:pointer}.project-preview{aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#e8e8ed;position:relative;transition:.25s}.project:hover .project-preview{transform:scale(1.012);box-shadow:var(--shadow)}.preview-one{background:linear-gradient(145deg,#fafafa 0 40%,#d9d9de 40% 100%)}.preview-one:after{content:"Paper String";position:absolute;left:11%;top:17%;font-size:clamp(24px,3vw,42px);font-weight:650;letter-spacing:-.06em}.preview-two{background:linear-gradient(135deg,#e9eef7,#c8d5e8)}.preview-two:after{content:"Campaign";position:absolute;left:10%;bottom:12%;font-size:clamp(25px,3vw,42px);font-weight:650}.preview-three{background:linear-gradient(145deg,#f1eee9,#d9d0c4)}.preview-three:after{content:"Story";position:absolute;right:10%;top:12%;font-size:clamp(26px,3vw,44px);font-weight:650}.project-info{padding:12px 3px}.project-name{font-size:14px;font-weight:600}.project-meta{font-size:12px;color:var(--muted);margin-top:4px}.page-intro{padding:45px 0 30px}.page-intro h1{font-size:48px;letter-spacing:-.055em;margin:8px 0}.page-intro p{margin:0;color:var(--muted)}.template-controls{display:flex;gap:10px;margin-bottom:24px}.search{height:38px;width:260px;border:1px solid var(--line);border-radius:19px;background:rgba(255,255,255,.65);padding:0 15px;outline:0}.filters{display:flex;gap:5px;overflow:auto}.filter{height:34px;padding:0 12px;border-radius:17px;color:var(--muted);font-size:12px}.filter.active{background:#1d1d1f;color:#fff}.template-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}.template{cursor:pointer}.template-art{aspect-ratio:4/5;border-radius:16px;display:grid;place-items:center;font-size:22px;font-weight:650;background:#e8edf7}.template:nth-child(2) .template-art{background:#e9e2d8}.template:nth-child(3) .template-art{background:#e5e9e4}.template:nth-child(4) .template-art{background:#e8e4ec}.template-name{font-size:13px;font-weight:600;margin-top:11px}.template-meta{font-size:11px;color:var(--muted);margin-top:4px}.settings{max-width:800px;margin:auto;padding:52px 0}.settings h1{font-size:48px;letter-spacing:-.055em}.settings-group{background:rgba(255,255,255,.7);border-radius:16px;overflow:hidden;border:1px solid var(--line)}.setting{min-height:68px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.setting:last-child{border:0}.setting span{font-size:13px;color:var(--muted)}.mobile-tabs{display:none}
-
-/* Easy editor */
-.editor{position:fixed;inset:0;z-index:50;background:#f1f1f4;display:none;grid-template-rows:58px 1fr}.editor.open{display:grid}.editor-toolbar{display:flex;align-items:center;justify-content:space-between;padding:0 12px;background:rgba(248,248,250,.78);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass)}.editor-group{display:flex;align-items:center;gap:4px}.editor-title{font-size:13px;font-weight:600;margin:0 8px}.editor-control{height:34px;min-width:34px;padding:0 9px;border-radius:9px;font-size:12px}.editor-control:hover{background:rgba(0,0,0,.045)}.save{font-size:11px;color:var(--muted);margin-right:8px}.editor-body{min-height:0;display:grid;grid-template-columns:76px 1fr 320px}.tool-rail{background:rgba(250,250,252,.78);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass);padding:12px 10px;display:flex;flex-direction:column;gap:6px}.tool{width:56px;min-height:54px;border-radius:12px;display:grid;place-items:center;color:#4d4d52;font-size:10px;gap:3px}.tool-icon{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:17px;line-height:18px;color:#4d4d52}.tool:hover{background:rgba(0,0,0,.035)}.tool.active{background:transparent;color:var(--blue);font-weight:600}.tool.active .tool-icon{background:var(--blue);color:#fff}.canvas-space{position:relative;min-width:0;display:grid;place-items:center;overflow:hidden;padding:42px}.canvas{width:min(78%,920px);aspect-ratio:16/10;background:#fff;box-shadow:0 20px 65px rgba(0,0,0,.16);position:relative;overflow:hidden}.canvas-bg{position:absolute;inset:0;background:linear-gradient(145deg,#fbfbfb,#e5e5e7)}.canvas-title{position:absolute;left:9%;top:12%;font-size:clamp(30px,4vw,60px);font-weight:650;letter-spacing:-.065em}.canvas-copy{position:absolute;left:9%;top:30%;font-size:14px;color:#6e6e73}.canvas-orb{position:absolute;right:9%;bottom:12%;width:27%;aspect-ratio:1;border-radius:50%;background:#0071e3}.quick-panel{background:rgba(250,250,252,.92);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass);overflow:auto;padding:20px 22px}.panel-heading{font-size:17px;font-weight:650;letter-spacing:-.025em;margin:2px 0 4px}.panel-help{font-size:12px;color:var(--muted);line-height:1.4;margin:0 0 18px}.quick-section{padding:18px 0;border-top:1px solid rgba(0,0,0,.06)}.quick-section:first-of-type{border-top:0;padding-top:0}.quick-title{font-size:11px;color:var(--muted);font-weight:650;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px}.action-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:28px}.action{min-height:50px;border:0;border-bottom:1px solid rgba(0,0,0,.07);border-radius:0;background:transparent;padding:0 2px;text-align:left;font-size:12px;transition:background .16s ease}.action:hover{background:rgba(0,0,0,.035)}.action strong{display:block;font-size:13px;font-weight:600}.action small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.simple-row{display:flex;gap:8px}.simple-control{height:38px;flex:1;border:0;border-radius:9px;background:rgba(0,0,0,.045);padding:0 10px;display:flex;align-items:center;justify-content:space-between;font-size:12px}.simple-control b{font-weight:600}.more{width:100%;height:38px;margin-top:10px;border-radius:10px;background:rgba(0,0,0,.045);font-size:12px;color:#444}.more:hover{background:rgba(0,0,0,.07)}
-.layers{margin-top:5px}.layer{height:42px;padding:0 8px;border-radius:10px;display:flex;align-items:center;gap:9px;font-size:12px}.layer:hover{background:rgba(0,0,0,.04)}.layer.selected{background:rgba(0,113,227,.075);color:#0066cc;font-weight:600}.layer-icon{width:25px;height:25px;border-radius:7px;background:#e5e5e8;display:grid;place-items:center;font-size:11px}.add-layer{width:100%;height:38px;margin-top:8px;border-radius:10px;background:#1d1d1f;color:#fff;font-size:12px}.advanced{display:none}.advanced.open{display:block}.tip{font-size:11px;color:var(--muted);padding:9px 2px;line-height:1.45}.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,15px);opacity:0;pointer-events:none;background:rgba(30,30,32,.92);color:#fff;padding:10px 16px;border-radius:20px;font-size:12px;transition:.22s;z-index:100}.toast.show{opacity:1;transform:translate(-50%,0)}
-
-@media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{display:none}.content{padding:8px 22px 84px}.toolbar{padding:0 18px}.mobile-tabs{display:flex;position:fixed;z-index:20;left:12px;right:12px;bottom:12px;height:58px;border:1px solid rgba(255,255,255,.85);border-radius:20px;background:rgba(250,250,252,.8);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass);box-shadow:0 8px 30px rgba(0,0,0,.1);justify-content:space-around;align-items:center}.mobile-tabs button{font-size:10px;color:#777;display:grid;place-items:center;gap:2px}.mobile-tabs button.active{color:#0066cc;font-weight:600}.hero{padding:55px 0 65px}.hero h1{font-size:54px}.hero p{font-size:18px}.project-list{grid-template-columns:1fr 1fr}.template-grid{grid-template-columns:1fr 1fr}.editor-body{grid-template-columns:1fr}.tool-rail{position:absolute;z-index:4;left:10px;right:10px;bottom:12px;height:68px;border:0;border-radius:20px;background:rgba(250,250,252,.86);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass);box-shadow:0 10px 34px rgba(0,0,0,.11);padding:7px;display:flex;flex-direction:row;justify-content:space-around}.tool{width:52px;min-height:52px;background:transparent}.quick-panel{position:absolute;z-index:3;left:10px;right:10px;bottom:92px;max-height:52%;border:0;border-radius:24px;box-shadow:0 14px 44px rgba(0,0,0,.13);padding:20px;display:none}.quick-panel.open{display:block}.canvas-space{padding:25px}.canvas{width:90%}.mobile-panel-toggle{display:block!important}}
-@media(min-width:901px){.mobile-panel-toggle{display:none!important}}
-@media(max-width:520px){.hero h1{font-size:45px}.hero p{font-size:17px}.project-list,.template-grid{grid-template-columns:1fr}.template-controls{display:block}.search{width:100%;margin-bottom:9px}.editor-title,.save{display:none}.canvas{width:96%;aspect-ratio:4/5}.tool-rail{left:7px;right:7px}.tool{width:43px;font-size:9px;background:transparent}.tool-icon{width:28px;height:28px}.tool:nth-child(n+7){display:none}.quick-panel{bottom:88px;max-height:58%}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
-
-/* Native-feeling adjustment sliders */
-.slider-control{
-  padding:10px 2px 4px;
-}
-.slider-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:9px;
-  font-size:12px;
-}
-.slider-row strong{font-weight:600}
-.slider-value{color:var(--muted);font-variant-numeric:tabular-nums}
-.ps-slider{
-  -webkit-appearance:none;
-  appearance:none;
-  width:100%;
-  height:4px;
-  border-radius:999px;
-  background:linear-gradient(to right,var(--blue) 0%,var(--blue) 50%,rgba(0,0,0,.12) 50%,rgba(0,0,0,.12) 100%);
-  outline:none;
-  cursor:pointer;
-}
-.ps-slider::-webkit-slider-thumb{
-  -webkit-appearance:none;
-  appearance:none;
-  width:20px;
-  height:20px;
-  border-radius:50%;
-  background:#fff;
-  box-shadow:0 1px 5px rgba(0,0,0,.2),0 0 0 1px rgba(0,0,0,.08);
-}
-.ps-slider::-moz-range-thumb{
-  width:20px;
-  height:20px;
-  border:0;
-  border-radius:50%;
-  background:#fff;
-  box-shadow:0 1px 5px rgba(0,0,0,.2),0 0 0 1px rgba(0,0,0,.08);
-}
-.ps-slider:focus-visible{outline:2px solid rgba(0,113,227,.35);outline-offset:5px}
-@media(max-width:520px){
-  .slider-control{padding-top:8px}
-  .ps-slider::-webkit-slider-thumb{width:22px;height:22px}
-  .ps-slider::-moz-range-thumb{width:22px;height:22px}
-}
+:root{--bg:#f5f5f7;--surface:rgba(255,255,255,.76);--solid:#fff;--ink:#1d1d1f;--muted:#6e6e73;--subtle:#86868b;--line:rgba(0,0,0,.075);--blue:#0071e3;--blue-soft:rgba(0,113,227,.09);--glass:blur(28px) saturate(180%);--shadow:0 18px 60px rgba(0,0,0,.09);--radius:18px}
+*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}body{overflow:hidden}button,input{font:inherit}button{border:0;background:none;color:inherit;cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid rgba(0,113,227,.28);outline-offset:3px}
+.app{height:100dvh;display:grid;grid-template-columns:248px 1fr}.sidebar{margin:12px 0 12px 12px;border-radius:22px;background:rgba(250,250,252,.72);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass);box-shadow:0 8px 34px rgba(0,0,0,.055);padding:15px 10px;display:flex;flex-direction:column;z-index:10}.brand{display:flex;align-items:center;gap:10px;padding:8px 10px 24px;font-size:17px;font-weight:650;letter-spacing:-.02em}.brand-mark{width:30px;height:30px;border-radius:9px;background:#1d1d1f;color:#fff;display:grid;place-items:center;font-size:12px}.nav-label{padding:10px 12px 6px;color:var(--subtle);font-size:10px;font-weight:650;letter-spacing:.06em;text-transform:uppercase}.nav{display:grid;gap:2px}.nav-item{height:40px;padding:0 12px;border-radius:10px;display:flex;align-items:center;gap:11px;color:#515154;font-size:13px;text-align:left}.nav-item:hover{background:rgba(0,0,0,.04)}.nav-item.active{background:rgba(0,0,0,.065);color:var(--ink);font-weight:600}.nav-icon{width:18px;text-align:center;font-size:15px}.sidebar-bottom{margin-top:auto;padding:10px}.account{display:flex;align-items:center;gap:9px;padding:9px 3px;color:#515154;font-size:12px}.avatar{width:28px;height:28px;border-radius:50%;background:#e8e8ed;display:grid;place-items:center;font-size:11px;font-weight:650}
+.main{min-width:0;overflow:auto}.topbar{height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;position:sticky;top:0;z-index:4;background:rgba(245,245,247,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}.crumb{font-size:13px;color:var(--muted)}.top-actions{display:flex;align-items:center;gap:8px}.quiet{height:36px;padding:0 11px;border-radius:9px;color:#515154;font-size:12px}.quiet:hover{background:rgba(0,0,0,.045)}.primary{height:38px;padding:0 17px;border-radius:20px;background:var(--blue);color:#fff;font-size:12px;font-weight:600;box-shadow:0 5px 16px rgba(0,113,227,.18)}.primary:hover{background:#0077ed}
+.page{max-width:1240px;margin:0 auto;padding:22px 48px 90px}.hero{padding:70px 0 76px;max-width:780px}.eyebrow{font-size:11px;font-weight:650;letter-spacing:.08em;text-transform:uppercase;color:var(--subtle);margin-bottom:16px}.hero h1{font-size:clamp(44px,6vw,76px);line-height:.98;letter-spacing:-.055em;font-weight:650;margin:0 0 22px}.hero p{font-size:19px;line-height:1.45;color:var(--muted);max-width:570px;margin:0 0 30px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap}.secondary{height:40px;padding:0 17px;border-radius:20px;background:rgba(0,0,0,.055);font-size:12px;font-weight:600}.secondary:hover{background:rgba(0,0,0,.08)}
+.section{padding:0 0 72px}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}.section-head h2{font-size:21px;letter-spacing:-.03em;margin:0;font-weight:650}.section-head p{font-size:12px;color:var(--muted);margin:5px 0 0}.link{color:var(--blue);font-size:12px}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}.project{min-width:0}.project-preview{aspect-ratio:4/3;border-radius:15px;background:#e9e9ec;overflow:hidden;position:relative}.project-preview.one{background:linear-gradient(145deg,#ececec 0 48%,#d8d8da 48%)}.project-preview.two{background:linear-gradient(145deg,#f4f4f4,#dfe2e7)}.project-preview.three{background:linear-gradient(145deg,#ddd,#f7f7f7)}.preview-sheet{position:absolute;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.1)}.one .preview-sheet{width:58%;height:58%;left:21%;top:20%;transform:rotate(-4deg)}.two .preview-sheet{width:60%;height:72%;left:20%;top:12%;transform:rotate(3deg)}.three .preview-sheet{width:55%;height:64%;left:23%;top:18%;transform:rotate(-2deg)}.preview-line{height:7px;background:#d5d5d7;margin:18px}.preview-dot{width:28px;height:28px;border-radius:50%;background:#c9c9cc;margin:18px}.project-info{padding:13px 1px}.project-name{font-size:14px;font-weight:600}.project-meta{font-size:11px;color:var(--muted);margin-top:4px}
+.template-controls{display:flex;gap:10px;margin-bottom:28px;align-items:center}.search{height:42px;flex:1;max-width:420px;border:0;border-radius:11px;background:rgba(0,0,0,.045);padding:0 14px;font-size:13px;outline:0}.filters{display:flex;gap:5px;overflow:auto}.filter{height:34px;padding:0 11px;border-radius:17px;white-space:nowrap;font-size:11px;color:#5b5b60}.filter:hover{background:rgba(0,0,0,.045)}.filter.active{background:#1d1d1f;color:#fff}.template-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}.template-art{aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#e6e6e8;position:relative}.template-art:after{content:"";position:absolute;inset:15% 18%;background:#fff;box-shadow:0 10px 28px rgba(0,0,0,.1)}.template-art.a{background:#e9e4dc}.template-art.b{background:#dfe6ee}.template-art.c{background:#ebe8f0}.template-art.d{background:#e5e5e2}.template-name{font-size:13px;font-weight:600;margin-top:10px}.template-meta{font-size:11px;color:var(--muted);margin-top:3px}
+.settings-wrap{max-width:760px;padding-top:34px}.page-title{font-size:38px;letter-spacing:-.045em;margin:0 0 8px;font-weight:650}.page-sub{font-size:14px;color:var(--muted);margin:0 0 34px}.setting-group{margin:0 0 28px}.setting-group h3{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--subtle);margin:0 0 8px}.setting-list{background:rgba(255,255,255,.58);border-radius:16px;overflow:hidden}.setting{min-height:62px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font-size:13px}.setting:last-child{border-bottom:0}.setting small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.chev{color:#9a9a9f}.toggle{width:38px;height:22px;border-radius:12px;background:#d2d2d7;padding:2px}.toggle span{display:block;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.18)}.toggle.on{background:var(--blue)}.toggle.on span{transform:translateX(16px)}
+.editor{position:fixed;inset:0;background:#f0f0f3;z-index:50;display:none}.editor.open{display:grid;grid-template-rows:58px 1fr}.editor-bar{display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:rgba(250,250,252,.78);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);z-index:5}.editor-left,.editor-right{display:flex;align-items:center;gap:4px}.editor-name{font-size:13px;font-weight:600;margin:0 8px}.icon-btn{height:34px;min-width:34px;padding:0 8px;border-radius:9px;font-size:13px;color:#4c4c51}.icon-btn:hover{background:rgba(0,0,0,.05)}.save-state{font-size:11px;color:var(--muted);margin-right:6px}.editor-layout{min-height:0;display:grid;grid-template-columns:76px 1fr 330px}.toolrail{padding:12px 10px;background:rgba(248,248,250,.76);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);display:flex;flex-direction:column;gap:5px}.tool{width:56px;min-height:56px;border-radius:12px;display:grid;place-items:center;align-content:center;gap:3px;color:#55555a;font-size:9px}.tool:hover{background:rgba(0,0,0,.035)}.tool-icon{width:29px;height:29px;border-radius:50%;display:grid;place-items:center;font-size:16px}.tool.active{color:var(--blue);font-weight:600}.tool.active .tool-icon{background:var(--blue);color:#fff}.workspace{position:relative;overflow:hidden;display:grid;place-items:center;background:radial-gradient(circle at center,rgba(255,255,255,.5),transparent 56%)}.canvas{width:min(68%,720px);aspect-ratio:4/3;background:#fff;box-shadow:0 25px 75px rgba(0,0,0,.13);position:relative}.canvas-text{position:absolute;left:14%;top:18%;font-size:clamp(22px,3vw,40px);font-weight:650;letter-spacing:-.04em}.canvas-block{position:absolute;right:12%;bottom:14%;width:26%;height:24%;background:#e8e8eb}.canvas-dot{position:absolute;left:14%;bottom:16%;width:54px;height:54px;border-radius:50%;background:#1d1d1f}.zoom{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);height:34px;padding:0 12px;border-radius:17px;background:rgba(250,250,252,.82);backdrop-filter:blur(18px);font-size:11px;color:#555;box-shadow:0 5px 18px rgba(0,0,0,.08)}.inspector{background:rgba(250,250,252,.82);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);overflow:auto;padding:22px}.inspector h2{font-size:20px;letter-spacing:-.03em;margin:0 0 5px}.inspector>p{font-size:12px;color:var(--muted);line-height:1.45;margin:0 0 22px}.inspector-section{padding:18px 0;border-top:1px solid var(--line)}.inspector-section:first-of-type{border-top:0;padding-top:0}.inspector-label{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--subtle);font-weight:650;margin-bottom:11px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}.action{min-height:56px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;text-align:left;padding:7px 2px}.action strong{font-size:12px;font-weight:600}.action small{font-size:10px;color:var(--muted);margin-top:3px}.control{padding:8px 0}.control-head{display:flex;justify-content:space-between;font-size:12px;margin-bottom:9px}.control-value{color:var(--muted);font-variant-numeric:tabular-nums}.slider{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:99px;background:linear-gradient(to right,var(--blue) 0 50%,rgba(0,0,0,.12) 50%);outline:0}.slider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 5px rgba(0,0,0,.2),0 0 0 1px rgba(0,0,0,.08)}.more{width:100%;height:38px;border-radius:10px;background:rgba(0,0,0,.045);font-size:12px;color:#444}.more:hover{background:rgba(0,0,0,.07)}.layers{display:grid;gap:2px}.layer{height:44px;border-radius:9px;padding:0 7px;display:flex;align-items:center;gap:9px;font-size:12px}.layer:hover{background:rgba(0,0,0,.035)}.layer.selected{background:var(--blue-soft);color:#0066c9;font-weight:600}.layer-icon{width:26px;height:26px;border-radius:7px;background:rgba(0,0,0,.055);display:grid;place-items:center;font-size:11px}.add-layer{height:38px;margin-top:9px;width:100%;border-radius:9px;background:rgba(0,0,0,.05);font-size:12px;font-weight:600}.mobile-tabs{display:none}
+.modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.22);backdrop-filter:blur(10px);display:none;place-items:center;padding:20px}.modal.open{display:grid}.modal-card{width:min(520px,100%);background:rgba(250,250,252,.96);border-radius:22px;padding:28px;box-shadow:0 28px 90px rgba(0,0,0,.2)}.modal-card h2{font-size:25px;letter-spacing:-.035em;margin:0 0 7px}.modal-card p{font-size:13px;color:var(--muted);margin:0 0 24px;line-height:1.5}.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.choice{padding:18px;text-align:left;border-radius:14px;background:rgba(0,0,0,.045)}.choice:hover{background:rgba(0,0,0,.075)}.choice b{display:block;font-size:13px}.choice span{display:block;color:var(--muted);font-size:10px;margin-top:5px}.modal-close{margin-top:20px;color:var(--blue);font-size:12px}
+@media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{display:none}.topbar{padding:0 22px}.page{padding:12px 22px 100px}.hero{padding:54px 0 62px}.project-grid{grid-template-columns:1fr 1fr}.template-grid{grid-template-columns:repeat(2,1fr)}.editor-layout{grid-template-columns:1fr}.toolrail{position:absolute;left:10px;right:10px;bottom:10px;height:68px;border-radius:20px;background:rgba(250,250,252,.88);box-shadow:0 12px 40px rgba(0,0,0,.12);z-index:4;flex-direction:row;justify-content:space-around;padding:7px}.tool{width:52px;min-height:52px}.inspector{position:absolute;left:10px;right:10px;bottom:88px;max-height:55%;border-radius:24px;background:rgba(250,250,252,.93);box-shadow:0 15px 50px rgba(0,0,0,.13);z-index:3;padding:20px;display:none}.inspector.open{display:block}.editor-layout:after{content:"";position:absolute;left:0;right:0;bottom:0;height:96px;z-index:2;pointer-events:none}.canvas{width:min(78%,620px)}.mobile-tabs{display:flex;position:fixed;bottom:12px;left:10px;right:10px;height:62px;border-radius:20px;background:rgba(250,250,252,.88);backdrop-filter:blur(24px);box-shadow:0 10px 35px rgba(0,0,0,.1);z-index:8;align-items:center;justify-content:space-around}.mobile-tab{font-size:10px;color:#555;height:46px;padding:0 16px;border-radius:11px;display:grid;place-items:center}.mobile-tab.active{background:rgba(0,0,0,.065);color:var(--ink);font-weight:600}}
+@media(max-width:520px){.topbar{height:60px}.hero h1{font-size:47px}.hero p{font-size:17px}.project-grid{grid-template-columns:1fr;gap:26px}.template-controls{display:block}.search{max-width:none;width:100%;margin-bottom:10px}.template-grid{gap:18px}.page-title{font-size:34px}.choice-grid{grid-template-columns:1fr}.actions{grid-template-columns:1fr}.action{min-height:50px}.editor-bar{padding:0 8px}.editor-name{max-width:120px;overflow:hidden;text-overflow:ellipsis}.canvas{width:82%}.inspector{max-height:56%}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
 <div class="app">
 <aside class="sidebar">
-<div class="brand"><div class="brand-mark">P</div><span>Paper String</span></div>
-<div class="nav-group"><div class="nav-label">Workspace</div><button class="nav-item active" data-view="home"><span class="symbol">⌂</span>Home</button><button class="nav-item" data-view="projects"><span class="symbol">▱</span>Projects</button><button class="nav-item" data-view="templates"><span class="symbol">▦</span>Templates</button></div>
-<div class="sidebar-bottom"><button class="nav-item" data-view="settings"><span class="symbol">⚙</span>Settings</button></div>
+  <div class="brand"><div class="brand-mark">P</div><span>Paper String</span></div>
+  <div class="nav">
+    <div class="nav-label">Workspace</div>
+    <button class="nav-item active" data-page="home"><span class="nav-icon">⌂</span>Home</button>
+    <button class="nav-item" data-page="projects"><span class="nav-icon">▣</span>Projects</button>
+    <button class="nav-item" data-page="templates"><span class="nav-icon">◫</span>Templates</button>
+    <div class="nav-label">Personal</div>
+    <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span>Settings</button>
+  </div>
+  <div class="sidebar-bottom"><div class="account"><div class="avatar">S</div><div><b>Personal space</b><br><span>Local projects</span></div></div></div>
 </aside>
-<main class="main">
-<header class="toolbar"><span class="toolbar-title" id="pageTitle">Home</span><div class="toolbar-right"><button class="tool-btn" id="continueBtn">Continue</button><button class="primary" id="newBtn">Create</button></div></header>
-<section class="content">
-<div class="home view" id="home"><div class="hero"><div class="kicker">Paper String</div><h1>Make something<br>worth keeping.</h1><p>A precise, quiet workspace for creating visual work. Start with your own canvas or begin from a structure you can make your own.</p><div class="hero-actions"><button class="primary" id="blankBtn">Create a canvas</button><button class="text-action" data-view="templates">Explore templates →</button></div></div><div class="section"><div class="section-head"><h2 class="section-title">Recent</h2><button class="section-link" data-view="projects">See all</button></div><div class="project-list"><article class="project" data-open-editor><div class="project-preview preview-one"></div><div class="project-info"><div class="project-name">Untitled design</div><div class="project-meta">1080 × 1080 · Just now</div></div></article><article class="project" data-open-editor><div class="project-preview preview-two"></div><div class="project-info"><div class="project-name">Campaign concept</div><div class="project-meta">1920 × 1080 · Yesterday</div></div></article><article class="project" data-open-editor><div class="project-preview preview-three"></div><div class="project-info"><div class="project-name">Story study</div><div class="project-meta">1080 × 1920 · Sep 29</div></div></article></div></div></div>
-<div class="templates-page view" id="templates"><div class="page-intro"><div class="kicker">Paper String</div><h1>Templates</h1><p>Start with a structure. Make it yours.</p></div><div class="template-controls"><input class="search" placeholder="Search templates" aria-label="Search templates"><div class="filters"><button class="filter active">All</button><button class="filter">Social</button><button class="filter">Print</button><button class="filter">Presentation</button></div></div><div class="template-grid"><article class="template" data-open-editor><div class="template-art">Editorial</div><div class="template-name">Editorial study</div><div class="template-meta">1080 × 1350 · Placeholder</div></article><article class="template" data-open-editor><div class="template-art">Poster</div><div class="template-name">Quiet poster</div><div class="template-meta">2400 × 3000 · Placeholder</div></article><article class="template" data-open-editor><div class="template-art">Campaign</div><div class="template-name">Campaign layout</div><div class="template-meta">1920 × 1080 · Placeholder</div></article><article class="template" data-open-editor><div class="template-art">Story</div><div class="template-name">Story frame</div><div class="template-meta">1080 × 1920 · Placeholder</div></article></div></div>
-<div class="templates-page view" id="projects"><div class="page-intro"><div class="kicker">Your workspace</div><h1>Projects</h1><p>Your private creative work, organized simply.</p></div><div class="section-head"><h2 class="section-title">All projects</h2><button class="primary" id="projectCreate">New project</button></div><div class="project-list"><article class="project" data-open-editor><div class="project-preview preview-one"></div><div class="project-info"><div class="project-name">Untitled design</div><div class="project-meta">1080 × 1080</div></div></article><article class="project" data-open-editor><div class="project-preview preview-two"></div><div class="project-info"><div class="project-name">Campaign concept</div><div class="project-meta">1920 × 1080</div></div></article><article class="project" data-open-editor><div class="project-preview preview-three"></div><div class="project-info"><div class="project-name">Story study</div><div class="project-meta">1080 × 1920</div></div></article></div></div>
-<div class="settings view" id="settings"><div class="kicker">Paper String</div><h1>Settings</h1><div class="settings-group"><div class="setting"><strong>Appearance</strong><span>Light · System-aware</span></div><div class="setting"><strong>Editor preferences</strong><span>Canvas, shortcuts, tools</span></div><div class="setting"><strong>Accessibility</strong><span>Motion, contrast, keyboard</span></div><div class="setting"><strong>Imported fonts</strong><span>Manage document fonts</span></div></div></div>
+<main class="main" id="main">
+<header class="topbar"><div class="crumb" id="crumb">Home</div><div class="top-actions"><button class="quiet" id="openTemplates">Templates</button><button class="primary" id="newProject">New project</button></div></header>
+<section class="page" id="page-home">
+  <div class="hero"><div class="eyebrow">A quiet place to make</div><h1>Make something worth keeping.</h1><p>Paper String is a simple, professional space for creating and editing photos and graphics — without making you learn a complicated editor first.</p><div class="hero-actions"><button class="primary" id="heroNew">Create a project</button><button class="secondary" id="heroTemplates">Browse templates</button></div></div>
+  <div class="section"><div class="section-head"><div><h2>Continue creating</h2><p>Your recent projects, right where you left them.</p></div><button class="link" data-page-link="projects">See all projects</button></div>
+    <div class="project-grid">
+      <article class="project"><div class="project-preview one"><div class="preview-sheet"><div class="preview-line"></div><div class="preview-dot"></div></div></div><div class="project-info"><div class="project-name">Weekend poster</div><div class="project-meta">1080 × 1350 · Edited today</div></div></article>
+      <article class="project"><div class="project-preview two"><div class="preview-sheet"><div class="preview-line"></div><div class="preview-line"></div></div></div><div class="project-info"><div class="project-name">Product launch</div><div class="project-meta">1920 × 1080 · Edited yesterday</div></div></article>
+      <article class="project"><div class="project-preview three"><div class="preview-sheet"><div class="preview-dot"></div><div class="preview-line"></div></div></div><div class="project-info"><div class="project-name">Photo story</div><div class="project-meta">1080 × 1920 · Edited Sep 28</div></div></article>
+    </div>
+  </div>
+</section>
+<section class="page" id="page-projects" hidden>
+  <div class="settings-wrap"><div class="eyebrow">Workspace</div><h1 class="page-title">Projects</h1><p class="page-sub">Everything you make stays organized here.</p></div>
+  <div class="section"><div class="section-head"><div><h2>All projects</h2><p>Private working documents.</p></div><button class="primary" id="projectsNew">New project</button></div>
+    <div class="project-grid">
+      <article class="project"><div class="project-preview one"><div class="preview-sheet"><div class="preview-line"></div><div class="preview-dot"></div></div></div><div class="project-info"><div class="project-name">Weekend poster</div><div class="project-meta">1080 × 1350 · Edited today</div></div></article>
+      <article class="project"><div class="project-preview two"><div class="preview-sheet"><div class="preview-line"></div><div class="preview-line"></div></div></div><div class="project-info"><div class="project-name">Product launch</div><div class="project-meta">1920 × 1080 · Edited yesterday</div></div></article>
+      <article class="project"><div class="project-preview three"><div class="preview-sheet"><div class="preview-dot"></div><div class="preview-line"></div></div></div><div class="project-info"><div class="project-name">Photo story</div><div class="project-meta">1080 × 1920 · Edited Sep 28</div></div></article>
+    </div>
+  </div>
+</section>
+<section class="page" id="page-templates" hidden>
+  <div class="settings-wrap"><div class="eyebrow">Start from a foundation</div><h1 class="page-title">Templates</h1><p class="page-sub">Choose a starting point, then make it yours in the editor.</p></div>
+  <div class="template-controls"><input class="search" placeholder="Search templates" aria-label="Search templates"><div class="filters"><button class="filter active">All</button><button class="filter">Social</button><button class="filter">Print</button><button class="filter">Presentation</button><button class="filter">Photo</button></div></div>
+  <div class="template-grid">
+    <article><div class="template-art a"></div><div class="template-name">Placeholder template</div><div class="template-meta">1080 × 1080 · Development</div></article>
+    <article><div class="template-art b"></div><div class="template-name">Placeholder template</div><div class="template-meta">1920 × 1080 · Development</div></article>
+    <article><div class="template-art c"></div><div class="template-name">Placeholder template</div><div class="template-meta">1080 × 1920 · Development</div></article>
+    <article><div class="template-art d"></div><div class="template-name">Placeholder template</div><div class="template-meta">2400 × 1350 · Development</div></article>
+  </div>
+</section>
+<section class="page" id="page-settings" hidden>
+  <div class="settings-wrap"><div class="eyebrow">Personal</div><h1 class="page-title">Settings</h1><p class="page-sub">A small set of preferences for the way you work.</p>
+  <div class="setting-group"><h3>Account</h3><div class="setting-list"><div class="setting"><div><b>Personal space</b><small>Projects and preferences</small></div><span class="chev">›</span></div><div class="setting"><div><b>Sign-in</b><small>Google or Apple</small></div><span class="chev">›</span></div></div></div>
+  <div class="setting-group"><h3>Editor</h3><div class="setting-list"><div class="setting"><div><b>Touch gestures</b><small>Use gestures for zoom and pan</small></div><button class="toggle on"><span></span></button></div><div class="setting"><div><b>Show tool labels</b><small>Keep names visible on mobile</small></div><button class="toggle on"><span></span></button></div></div></div>
+  <div class="setting-group"><h3>Accessibility</h3><div class="setting-list"><div class="setting"><div><b>Reduce motion</b><small>Prefer simpler transitions</small></div><button class="toggle"><span></span></button></div><div class="setting"><div><b>Keyboard shortcuts</b><small>View and customize shortcuts</small></div><span class="chev">›</span></div></div></div>
+  </div>
 </section>
 </main>
-<nav class="mobile-tabs"><button class="active" data-view="home">⌂<span>Home</span></button><button data-view="projects">▱<span>Projects</span></button><button data-view="templates">▦<span>Templates</span></button><button data-view="settings">⚙<span>Settings</span></button></nav>
 </div>
 
+<div class="mobile-tabs"><button class="mobile-tab active" data-page="home">Home</button><button class="mobile-tab" data-page="projects">Projects</button><button class="mobile-tab" data-page="templates">Templates</button><button class="mobile-tab" data-page="settings">Settings</button></div>
+
 <div class="editor" id="editor">
-<header class="editor-toolbar"><div class="editor-group"><button class="editor-control" id="closeEditor">‹</button><span class="editor-title">Untitled design</span><button class="editor-control" title="Undo">↶</button><button class="editor-control" title="Redo">↷</button></div><div class="editor-group"><span class="save">Saved</span><button class="editor-control">−</button><button class="editor-control">100%</button><button class="editor-control">＋</button><button class="primary" id="exportBtn">Export</button></div></header>
-<div class="editor-body">
-<aside class="tool-rail">
-<button class="tool active" data-tool="select"><span class="tool-icon">⌁</span>Select</button>
+<header class="editor-bar"><div class="editor-left"><button class="icon-btn" id="closeEditor">‹</button><button class="icon-btn">↶</button><button class="icon-btn">↷</button><span class="editor-name">Weekend poster</span></div><div class="editor-right"><span class="save-state">Saved</span><button class="icon-btn">−</button><span style="font-size:12px">100%</span><button class="icon-btn">＋</button><button class="primary">Export</button></div></header>
+<div class="editor-layout">
+<nav class="toolrail" id="toolrail">
+<button class="tool active" data-tool="select"><span class="tool-icon">↖</span>Select</button>
 <button class="tool" data-tool="image"><span class="tool-icon">＋</span>Image</button>
 <button class="tool" data-tool="text"><span class="tool-icon">T</span>Text</button>
 <button class="tool" data-tool="draw"><span class="tool-icon">✎</span>Draw</button>
 <button class="tool" data-tool="erase"><span class="tool-icon">⌫</span>Eraser</button>
 <button class="tool" data-tool="shape"><span class="tool-icon">◇</span>Shape</button>
 <button class="tool" data-tool="color"><span class="tool-icon">◉</span>Color</button>
-</aside>
-<section class="canvas-space"><div class="canvas"><div class="canvas-bg"></div><div class="canvas-title">Paper String</div><div class="canvas-copy">A calm canvas for ideas.</div><div class="canvas-orb"></div></div></section>
-<aside class="quick-panel" id="quickPanel">
-<div class="panel-heading" id="panelHeading">Select</div><p class="panel-help" id="panelHelp">Choose something on your canvas to edit it.</p>
-<div class="quick-section"><div class="quick-title">Common actions</div><div class="action-grid" id="commonActions"><button class="action"><strong>Move</strong><small>Place it anywhere</small></button><button class="action"><strong>Resize</strong><small>Make it bigger or smaller</small></button><button class="action"><strong>Rotate</strong><small>Turn it around</small></button><button class="action"><strong>Duplicate</strong><small>Make a copy</small></button></div></div>
-<div class="quick-section" id="contextSection"><div class="quick-title" id="contextTitle">Adjust</div><div class="slider-control"><div class="slider-row"><strong>Size</strong><span class="slider-value" id="sizeValue">100%</span></div><input class="ps-slider" id="sizeSlider" type="range" min="10" max="200" value="100" aria-label="Size"></div><div class="slider-control"><div class="slider-row"><strong>Rotate</strong><span class="slider-value" id="rotateValue">0°</span></div><input class="ps-slider" id="rotateSlider" type="range" min="-180" max="180" value="0" aria-label="Rotate"></div><button class="more" id="moreBtn">More options</button><div class="advanced" id="advanced"><div class="tip">Advanced controls stay here until you need them. This keeps the main editor easy to understand.</div><div class="simple-row"><button class="simple-control">Position <b>120, 80</b></button><button class="simple-control">Transparency <b>100%</b></button></div></div></div>
-<div class="quick-section"><div class="quick-title">Layers</div><div class="layers"><div class="layer selected"><span class="layer-icon">T</span>Paper String</div><div class="layer"><span class="layer-icon">○</span>Shape</div><div class="layer"><span class="layer-icon">▧</span>Background</div></div><button class="add-layer">＋ Add layer</button></div>
+</nav>
+<div class="workspace"><div class="canvas"><div class="canvas-text">Paper String</div><div class="canvas-dot"></div><div class="canvas-block"></div></div><button class="zoom">100%</button></div>
+<aside class="inspector open" id="inspector"><h2 id="inspectTitle">Select</h2><p id="inspectHelp">Choose something on your canvas to edit it.</p>
+<div class="inspector-section"><div class="inspector-label">Common actions</div><div class="actions" id="actions"></div></div>
+<div class="inspector-section" id="controls"></div>
+<div class="inspector-section"><div class="inspector-label">Layers</div><div class="layers"><div class="layer selected"><span class="layer-icon">T</span>Paper String</div><div class="layer"><span class="layer-icon">○</span>Shape</div><div class="layer"><span class="layer-icon">▧</span>Background</div></div><button class="add-layer">＋ Add layer</button></div>
 </aside>
 </div>
 </div>
-<div class="toast" id="toast">Export prepared</div>
+
+<div class="modal" id="newModal"><div class="modal-card"><h2>Start a new project</h2><p>Begin with a blank canvas or choose a starting point from your templates.</p><div class="choice-grid"><button class="choice" id="blankChoice"><b>Blank canvas</b><span>Choose any width and height.</span></button><button class="choice" id="templateChoice"><b>From a template</b><span>Browse editable starting points.</span></button></div><button class="modal-close" id="modalClose">Cancel</button></div></div>
+
 <script>
-const views=[...document.querySelectorAll('.view')],navs=[...document.querySelectorAll('[data-view]')],title=document.getElementById('pageTitle');
-function showView(id){views.forEach(v=>v.classList.toggle('active',v.id===id));navs.forEach(n=>n.classList.toggle('active',n.dataset.view===id));title.textContent=id[0].toUpperCase()+id.slice(1);document.querySelector('.content').scrollTop=0}
-navs.forEach(n=>n.addEventListener('click',()=>showView(n.dataset.view)));
-function openEditor(){document.getElementById('editor').classList.add('open');document.getElementById('quickPanel').classList.remove('open')}
-document.querySelectorAll('[data-open-editor]').forEach(x=>x.addEventListener('click',openEditor));
-['blankBtn','newBtn','continueBtn','projectCreate'].forEach(id=>{const e=document.getElementById(id);if(e)e.onclick=openEditor});
-document.getElementById('closeEditor').onclick=()=>document.getElementById('editor').classList.remove('open');
-document.getElementById('exportBtn').onclick=()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1700)};
-document.querySelectorAll('.filter').forEach(f=>f.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));f.classList.add('active')});
-const data={
-select:['Select','Choose something on your canvas to edit it.',['Move|Place it anywhere','Resize|Make it bigger or smaller','Rotate|Turn it around','Duplicate|Make a copy'],'Adjust'],
-image:['Image','Add or change a photo, then adjust it.',['Replace|Choose another photo','Crop|Keep the part you need','Resize|Make it bigger or smaller','Rotate|Turn it around'],'Image options'],
-text:['Text','Add words and make them look the way you want.',['Edit text|Change your words','Font|Choose a typeface','Size|Make text larger or smaller','Color|Choose a color'],'Text style'],
-draw:['Draw','Use your finger, mouse, or stylus to draw.',['Brush size|Make the stroke larger or smaller','Color|Choose a color','Undo|Remove the last stroke','Clear|Clear the current drawing'],'Drawing'],
-erase:['Eraser','Erase parts of the selected drawing or image.',['Size|Change eraser size','Undo|Bring back the last change','Clear|Erase the selected layer','More|Advanced eraser options'],'Eraser settings'],
-shape:['Shape','Add a simple shape to your canvas.',['Rectangle|Add a rectangle','Circle|Add a circle','Line|Add a line','Color|Choose a color'],'Shape style'],
-color:['Color','Choose colors for the selected item or tool.',['Eyedropper|Pick a color from the canvas','Palette|Choose a saved color','Recent|Use a recent color','Picker|Choose any color'],'Color']
+const pages=['home','projects','templates','settings'];
+const pageNames={home:'Home',projects:'Projects',templates:'Templates',settings:'Settings'};
+function showPage(name){
+ pages.forEach(p=>{const el=document.getElementById('page-'+p);if(el)el.hidden=p!==name});
+ document.querySelectorAll('.nav-item,.mobile-tab').forEach(b=>b.classList.toggle('active',b.dataset.page===name));
+ document.getElementById('crumb').textContent=pageNames[name];
+ document.getElementById('main').scrollTop=0;
+}
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+document.querySelectorAll('[data-page-link]').forEach(b=>b.onclick=()=>showPage(b.dataset.pageLink));
+document.getElementById('openTemplates').onclick=()=>showPage('templates');
+document.getElementById('heroTemplates').onclick=()=>showPage('templates');
+function openNew(){document.getElementById('newModal').classList.add('open')}
+document.getElementById('newProject').onclick=openNew;
+document.getElementById('heroNew').onclick=openNew;
+document.getElementById('projectsNew').onclick=openNew;
+document.getElementById('modalClose').onclick=()=>document.getElementById('newModal').classList.remove('open');
+document.getElementById('blankChoice').onclick=()=>{document.getElementById('newModal').classList.remove('open');openEditor()};
+document.getElementById('templateChoice').onclick=()=>{document.getElementById('newModal').classList.remove('open');showPage('templates')};
+
+const toolData={
+select:{title:'Select',help:'Choose something on your canvas to edit it.',actions:[['Move','Place it where you want'],['Resize','Make it larger or smaller'],['Rotate','Turn it around'],['Duplicate','Make another copy']],controls:'transform'},
+image:{title:'Image',help:'Add or change a photo, then adjust it.',actions:[['Replace','Choose another photo'],['Crop','Keep the part you need'],['Resize','Make it bigger or smaller'],['Rotate','Turn it around']],controls:'image'},
+text:{title:'Text',help:'Add words and make them look the way you want.',actions:[['Edit text','Change your words'],['Font','Choose a typeface'],['Color','Choose a color'],['Align','Set the text position']],controls:'text'},
+draw:{title:'Draw',help:'Use your finger, mouse, or stylus to draw.',actions:[['Color','Choose a drawing color'],['Undo','Bring back the last change']],controls:'draw'},
+erase:{title:'Eraser',help:'Erase parts of the selected drawing or image.',actions:[['Size','Change eraser size'],['Undo','Bring back the last change'],['Clear','Erase the selected layer']],controls:'erase'},
+shape:{title:'Shape',help:'Add a simple shape to your canvas.',actions:[['Shape','Choose a shape'],['Fill','Choose a fill color'],['Border','Choose a border'],['Resize','Change its size']],controls:'shape'},
+color:{title:'Color',help:'Choose a color for the selected item or tool.',actions:[['Eyedropper','Pick a color from the canvas'],['Recent colors','Use a color again']],controls:'color'}
 };
-function setTool(key){
- const d=data[key]||data.select;document.getElementById('panelHeading').textContent=d[0];document.getElementById('panelHelp').textContent=d[1];document.getElementById('contextTitle').textContent=d[3];
- const grid=document.getElementById('commonActions');grid.innerHTML=d[2].map(x=>{const [a,b]=x.split('|');return '<button class="action"><strong>'+a+'</strong><small>'+b+'</small></button>'}).join('');
- document.getElementById('advanced').classList.remove('open');
- document.querySelectorAll('.tool').forEach(t=>t.classList.toggle('active',t.dataset.tool===key));
- if(innerWidth<=900)document.getElementById('quickPanel').classList.add('open');
+function slider(id,label,min,max,val,suffix){
+return '<div class="control"><div class="control-head"><strong>'+label+'</strong><span class="control-value" id="'+id+'Value">'+val+suffix+'</span></div><input class="slider" id="'+id+'" type="range" min="'+min+'" max="'+max+'" value="'+val+'"></div>'
 }
-document.querySelectorAll('.tool').forEach(t=>t.onclick=()=>setTool(t.dataset.tool));
-document.getElementById('moreBtn').onclick=()=>document.getElementById('advanced').classList.toggle('open');
-function bindSlider(id,valueId,suffix){
- const s=document.getElementById(id),v=document.getElementById(valueId);
- if(!s)return;
- const paint=()=>{const min=+s.min,max=+s.max,val=+s.value,p=(val-min)/(max-min)*100;s.style.background='linear-gradient(to right,var(--blue) 0%,var(--blue) '+p+'%,rgba(0,0,0,.12) '+p+'%,rgba(0,0,0,.12) 100%)';v.textContent=val+suffix};
- s.addEventListener('input',paint);paint();
+function renderTool(key){
+ const d=toolData[key];
+ document.getElementById('inspectTitle').textContent=d.title;
+ document.getElementById('inspectHelp').textContent=d.help;
+ document.getElementById('actions').innerHTML=d.actions.map(a=>'<button class="action"><strong>'+a[0]+'</strong><small>'+a[1]+'</small></button>').join('');
+ let html='';
+ if(key==='select')html='<div class="inspector-label">Transform</div>'+slider('scale','Size',10,200,100,'%');
+ if(key==='image')html='<div class="inspector-label">Image options</div>'+slider('imageScale','Size',10,200,100,'%');
+ if(key==='text')html='<div class="inspector-label">Text style</div>'+slider('textSize','Text size',8,200,100,'%');
+ if(key==='draw')html='<div class="inspector-label">Drawing</div>'+slider('brushSize','Brush size',1,100,20,' px');
+ if(key==='erase')html='<div class="inspector-label">Eraser settings</div>'+slider('eraserSize','Size',1,100,20,' px');
+ if(key==='shape')html='<div class="inspector-label">Shape style</div><button class="more">Fill and border</button>';
+ if(key==='color')html='<div class="inspector-label">Color</div><button class="more">Open color picker</button>';
+ document.getElementById('controls').innerHTML=html;
+ const s=document.getElementById(key==='select'?'scale':key==='image'?'imageScale':key==='text'?'textSize':key==='draw'?'brushSize':'eraserSize');
+ if(s){const v=document.getElementById(s.id+'Value');const paint=()=>{const p=(+s.value-+s.min)/(+s.max-+s.min)*100;s.style.background='linear-gradient(to right,var(--blue) 0 '+p+'%,rgba(0,0,0,.12) '+p+'% 100%)';v.textContent=s.value+(key==='draw'||key==='erase'?' px':'%')};s.oninput=paint;paint()}
 }
-bindSlider('sizeSlider','sizeValue','%');
-bindSlider('rotateSlider','rotateValue','°');
+document.querySelectorAll('.tool').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tool').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderTool(b.dataset.tool);if(innerWidth<=900)document.getElementById('inspector').classList.add('open')});
+function openEditor(){document.getElementById('editor').classList.add('open');renderTool('select')}
+document.querySelectorAll('.project').forEach(p=>p.onclick=openEditor);
+document.getElementById('closeEditor').onclick=()=>document.getElementById('editor').classList.remove('open');
+document.querySelectorAll('.toggle').forEach(t=>t.onclick=()=>t.classList.toggle('on'));
+showPage('home');
 </script>
 </body>
 </html>
-
-/* Product-wide visual refinement: hierarchy first, borders only when functional */
-:root{
-  --bg:#f5f5f7;
-  --surface:rgba(255,255,255,.72);
-  --solid:#fff;
-  --ink:#1d1d1f;
-  --muted:#6e6e73;
-  --line:rgba(0,0,0,.075);
-  --blue:#0071e3;
-  --blueSoft:rgba(0,113,227,.085);
-}
-
-/* Stop treating every control as a card */
-.action-grid{grid-template-columns:1fr 1fr;gap:0 24px}
-.action{
-  min-height:56px;
-  border:0;
-  border-bottom:1px solid var(--line);
-  border-radius:0;
-  background:transparent;
-  padding:9px 2px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-.action:nth-child(3),.action:nth-child(4){border-bottom:0}
-.action:hover{background:rgba(0,0,0,.025)}
-.action strong{font-size:13px;line-height:1.25;font-weight:600;letter-spacing:-.01em}
-.action small{font-size:10.5px;line-height:1.3;margin-top:3px;color:var(--muted)}
-
-.quick-panel{padding:22px 24px}
-.panel-heading{font-size:19px;line-height:1.2;margin:1px 0 5px;letter-spacing:-.03em}
-.panel-help{font-size:13px;line-height:1.45;margin:0 0 22px;max-width:260px}
-.quick-section{padding:20px 0;border-top:1px solid var(--line)}
-.quick-section:first-of-type{padding-top:0;border-top:0}
-.quick-title{font-size:10px;letter-spacing:.06em;margin-bottom:12px;color:#7b7b80}
-.simple-row{gap:10px}
-.simple-control{
-  height:40px;
-  border:0;
-  border-radius:9px;
-  background:rgba(0,0,0,.045);
-  padding:0 11px;
-}
-.more{height:40px;border:0;background:rgba(0,0,0,.045)}
-.more:hover{background:rgba(0,0,0,.07)}
-
-.layers{margin-top:2px}
-.layer{
-  height:44px;
-  border-radius:9px;
-  padding:0 7px;
-  gap:9px;
-}
-.layer-icon{width:26px;height:26px}
-.layer.selected{background:var(--blueSoft)}
-.add-layer{
-  height:40px;
-  margin-top:10px;
-  border-radius:10px;
-  background:rgba(0,0,0,.055);
-  color:var(--ink);
-  font-weight:600;
-}
-.add-layer:hover{background:rgba(0,0,0,.085)}
-
-.contextSection .advanced{margin-top:10px}
-.tip{padding:8px 0}
-
-/* Softer application shell: structure comes from spacing, not outlines */
-.sidebar{
-  border:0;
-  box-shadow:0 8px 32px rgba(0,0,0,.055);
-}
-.nav-item{border-radius:9px}
-.toolbar{height:64px}
-.content{padding-left:48px;padding-right:48px}
-.section{padding-bottom:80px}
-.section-head{margin-bottom:22px}
-.project-preview,.template-art{border-radius:14px;box-shadow:none}
-.project:hover .project-preview{box-shadow:0 14px 42px rgba(0,0,0,.08)}
-.project-info{padding:13px 2px}
-.project-name,.template-name{letter-spacing:-.01em}
-.project-meta,.template-meta{line-height:1.4}
-
-.template-controls{gap:16px}
-.search{
-  border:0;
-  background:rgba(0,0,0,.045);
-  border-radius:10px;
-}
-.filter{border-radius:9px}
-.filter.active{background:#1d1d1f}
-
-.settings-group{
-  border:0;
-  border-radius:14px;
-  background:rgba(255,255,255,.64);
-}
-.setting{min-height:64px;padding:0 20px}
-.setting span{font-size:12px}
-
-.hero h1,.page-intro h1,.settings h1{
-  font-weight:650;
-}
-
-/* Editor controls: only the canvas should visually dominate */
-.editor-toolbar{border:0}
-.editor-body{background:#f1f1f4}
-.tool-rail{border:0}
-.tool.active{background:transparent}
-.tool.active .tool-icon{background:var(--blue);color:#fff}
-.quick-panel{border:0}
-.canvas{box-shadow:0 22px 70px rgba(0,0,0,.13)}
-
-@media(max-width:900px){
-  .content{padding-left:22px;padding-right:22px}
-  .quick-panel{padding:20px 22px}
-  .action-grid{grid-template-columns:1fr 1fr;gap:0 22px}
-  .action{min-height:58px}
-}
-@media(max-width:520px){
-  .action-grid{grid-template-columns:1fr}
-  .action:nth-child(3){border-bottom:1px solid var(--line)}
-  .action:nth-child(4){border-bottom:0}
-  .action{min-height:50px;padding:7px 2px}
-  .panel-help{max-width:none}
-}
